@@ -5,20 +5,23 @@ export default {
     extend: {
       colors: {
         brand: {
-          red: '#8B1A2B',
-          'red-light': '#A52030',
-          'red-dark': '#6B1220',
-          black: '#0f0f0f',
-          'dark': '#1a1a1a',
-          'gray': '#2d2d2d',
-          'gray-light': '#4a4a4a',
+          // Paleta Bull — Negro + Rojo
+          red: '#E8001C',
+          'red-light': '#FF1A2E',
+          'red-dark': '#B8000E',
+          'red-glow': 'rgba(232, 0, 28, 0.15)',
+          black: '#0a0a0a',
+          'dark': '#111111',
+          'gray': '#1A1A1A',
+          'gray-light': '#2A2A2A',
+          'gray-mid': '#404040',
           white: '#FFFFFF',
           'off-white': '#F5F5F5',
         },
       },
       fontFamily: {
-        display: ['Playfair Display', 'Georgia', 'serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Barlow Condensed', 'Impact', 'sans-serif'],
+        body: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
@@ -52,8 +55,8 @@ export default {
           '100%': { strokeDashoffset: '0' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 10px rgba(139, 26, 43, 0.2)' },
-          '100%': { boxShadow: '0 0 30px rgba(139, 26, 43, 0.6)' },
+          '0%': { boxShadow: '0 0 10px rgba(232, 0, 28, 0.2)' },
+          '100%': { boxShadow: '0 0 30px rgba(232, 0, 28, 0.6)' },
         },
         marquee: {
           '0%': { transform: 'translateX(0%)' },

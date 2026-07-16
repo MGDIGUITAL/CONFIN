@@ -6,7 +6,7 @@ export interface Props {
 }
 
 const { 
-  title = "Vision Code — Consultora de Ingeniería y Desarrollo",
+  title = "Vision Code — Agencia de Marketing Digital",
   description = "Soluciones tecnológicas corporativas, sistemas de gestión y plataformas e-commerce de alto rendimiento."
 } = Astro.props;
 ---
@@ -21,21 +21,30 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#030303" />
-    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <meta name="theme-color" content="#E8001C" />
+    <link rel="icon" type="image/png" href="/images/logo-negro.png" />
     <title>{title}</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <!-- Global Styles -->
     <style is:global>
       :root {
-        --saas-bg: #050505;
-        --saas-surface: rgba(255, 255, 255, 0.015);
-        --saas-border: rgba(255, 255, 255, 0.06);
-        --saas-border-hover: rgba(255, 255, 255, 0.15);
-        --saas-brand: #8B1A2B;
+        /* ─── Paleta Vision Code: Blanco + Rojo + Negro ─── */
+        --saas-bg:            #ffffff;
+        --saas-bg-alt:        #F6F6F6;
+        --saas-bg-dark:       #0a0a0a;
+        --saas-surface:       #ffffff;
+        --saas-surface-hover: rgba(232, 0, 28, 0.04);
+        --saas-border:        rgba(0, 0, 0, 0.09);
+        --saas-border-hover:  rgba(232, 0, 28, 0.55);
+        --saas-brand:         #E8001C;
+        --saas-brand-light:   #FF1A2E;
+        --saas-brand-dark:    #B8000E;
+        --saas-text:          #0a0a0a;
+        --saas-text-muted:    rgba(0, 0, 0, 0.50);
+        --saas-text-subtle:   rgba(0, 0, 0, 0.28);
       }
 
       *, *::before, *::after { box-sizing: border-box; }
@@ -43,138 +52,159 @@ const {
       body {
         margin: 0;
         background-color: var(--saas-bg);
-        color: #FFFFFF;
-        font-family: 'Inter', system-ui, sans-serif;
+        color: var(--saas-text);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
-        letter-spacing: -0.01em; /* Tensión tipográfica sutil */
-      }
-      
-      /* Fondo IA Corporativo */
-      .bg-ai-corporate {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: url('/images/bg-corporate.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0.15; /* Más sutil para no interferir con la legibilidad */
-        z-index: -1;
-        pointer-events: none;
+        letter-spacing: -0.01em;
       }
 
       ::selection { background: var(--saas-brand); color: #fff; }
       ::-webkit-scrollbar { width: 4px; }
-      ::-webkit-scrollbar-track { background: var(--saas-bg); }
-      ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+      ::-webkit-scrollbar-track { background: #f0f0f0; }
+      ::-webkit-scrollbar-thumb { background: rgba(232, 0, 28, 0.4); }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(232, 0, 28, 0.8); }
 
-      /* ── Corporate Cards ── */
+      /* ── Cards blancas con hover rojo ── */
       .bento-card {
-        background: var(--saas-surface);
-        border: 1px solid var(--saas-border);
-        border-radius: 0.5rem; /* rounded-lg para máxima seriedad (más cuadrado) */
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 0;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         position: relative;
         overflow: hidden;
         z-index: 10;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
       }
       .bento-card:hover {
-        border-color: var(--saas-border-hover);
-        background: rgba(20, 20, 20, 0.3);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px); /* Micro-interacción magnética */
+        border-color: rgba(232, 0, 28, 0.45);
+        box-shadow: 0 8px 32px rgba(232, 0, 28, 0.10);
+        transform: translateY(-3px);
       }
-      
-      /* Luz sutil superior */
       .bento-card::after {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        height: 3px;
+        background: #E8001C;
         opacity: 0;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.3s ease;
       }
       .bento-card:hover::after { opacity: 1; }
 
-      /* ── Badges y Botones Corporativos ── */
+      /* ── Badges ── */
       .saas-badge {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.25rem 0.75rem;
-        background: transparent;
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 0.125rem;
-        font-size: 0.65rem;
-        font-weight: 700;
-        color: rgba(255,255,255,0.6);
+        gap: 0.4rem;
+        padding: 0.2rem 0.65rem;
+        background: rgba(232, 0, 28, 0.07);
+        border: 1px solid rgba(232, 0, 28, 0.28);
+        border-radius: 0;
+        font-size: 0.6rem;
+        font-weight: 800;
+        font-family: 'Montserrat', sans-serif;
+        color: var(--saas-brand);
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.18em;
       }
-      
+
+      /* ── Botón rojo principal ── */
       .btn-primary {
         display: inline-flex;
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
         background: var(--saas-brand);
-        color: white;
-        font-weight: 700;
-        font-size: 0.8rem;
-        padding: 1rem 2.5rem;
-        border-radius: 0.125rem;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 0.72rem;
+        padding: 0.9rem 2.2rem;
+        border-radius: 0;
+        transition: all 0.22s ease;
         text-decoration: none;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border: 1px solid transparent;
+        letter-spacing: 0.12em;
+        border: 2px solid var(--saas-brand);
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
       }
       .btn-primary:hover {
-        background: transparent;
-        border-color: var(--saas-brand);
-        color: var(--saas-brand);
-        box-shadow: 0 0 20px rgba(139,26,43,0.2);
+        background: var(--saas-brand-dark);
+        border-color: var(--saas-brand-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(232, 0, 28, 0.35);
       }
-      
+
+      /* ── Botón outline negro (para fondos blancos) ── */
       .btn-secondary {
         display: inline-flex;
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
         background: transparent;
-        color: white;
+        color: #0a0a0a;
         font-weight: 700;
-        font-size: 0.8rem;
-        padding: 1rem 2.5rem;
-        border-radius: 0.125rem;
-        border: 1px solid rgba(255,255,255,0.15);
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        font-size: 0.72rem;
+        padding: 0.9rem 2.2rem;
+        border-radius: 0;
+        border: 2px solid rgba(0,0,0,0.22);
+        transition: all 0.22s ease;
         text-decoration: none;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.12em;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
       }
       .btn-secondary:hover {
-        background: rgba(255,255,255,0.03);
-        border-color: rgba(255,255,255,0.4);
+        border-color: var(--saas-brand);
+        color: var(--saas-brand);
+        transform: translateY(-1px);
+      }
+
+      /* ── Sección oscura (contraste) ── */
+      .section-dark {
+        background: #0a0a0a;
+        color: #ffffff;
+      }
+      .section-dark .bento-card {
+        background: rgba(255,255,255,0.04);
+        border-color: rgba(255,255,255,0.08);
+      }
+      .section-dark .bento-card:hover {
+        background: rgba(232,0,28,0.06);
+        border-color: rgba(232,0,28,0.4);
+      }
+      .section-dark p,
+      .section-dark span,
+      .section-dark li {
+        color: rgba(255,255,255,0.7);
+      }
+
+      /* ── Sección gris clara ── */
+      .section-light {
+        background: var(--saas-bg-alt);
+      }
+
+      /* ── Marquee animado ── */
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 28s linear infinite;
+        will-change: transform;
       }
 
       /* ── Reveal Animations ── */
       .fade-up {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(28px);
+        transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .fade-up.in-view { opacity: 1; transform: translateY(0); }
-      
+
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after {
           animation-duration: 0.01ms !important;
@@ -186,7 +216,6 @@ const {
     </style>
   </head>
   <body>
-    <div class="bg-ai-corporate"></div>
     <slot />
     
     <script>

@@ -184,14 +184,14 @@ const { service } = Astro.props;
   <Navbar />
   
   <div class="fixed inset-0 z-0 opacity-20 pointer-events-none">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#8B1A2B]/10 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#E8001C]/10 to-transparent"></div>
   </div>
 
   <main class="min-h-screen pt-32 pb-20 relative z-10 flex items-center">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full">
       
       <div class="mb-10">
-        <a href="javascript:history.back()" class="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm font-bold tracking-widest uppercase transition-colors">
+        <a href="javascript:history.back()" class="inline-flex items-center gap-2 text-black/50 hover:text-black text-sm font-bold tracking-widest uppercase transition-colors">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Volver atrás
         </a>
@@ -200,43 +200,43 @@ const { service } = Astro.props;
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
         <!-- Left: Image -->
-        <div class="bento-card bg-black/40 border-white/10 p-6 flex justify-center fade-up relative overflow-hidden group">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+        <div class="bento-card bg-white border-black/10 p-6 flex justify-center fade-up relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent z-10"></div>
           <img src={service.img} alt={service.title} class="w-full h-auto max-h-[600px] object-contain rounded-lg relative z-0 group-hover:scale-105 transition-transform duration-700" />
         </div>
 
         <!-- Right: Content -->
         <div class="flex flex-col fade-up" style="transition-delay: 0.2s">
           <div class="mb-8">
-            <span class="saas-badge border-none text-[#8B1A2B] bg-[#8B1A2B]/10 tracking-[0.2em] text-[0.65rem] px-3 py-1 uppercase font-bold mb-4 inline-block">{service.category}</span>
-            <h1 class="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-2 leading-tight">
+            <span class="saas-badge border-none text-[#E8001C] bg-[#E8001C]/10 tracking-[0.2em] text-[0.65rem] px-3 py-1 uppercase font-bold mb-4 inline-block">{service.category}</span>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tighter text-black mb-2 leading-tight">
               {service.title}
             </h1>
-            <p class="text-xl text-white/50 font-light">{service.subtitle}</p>
+            <p class="text-xl text-black/60 font-light">{service.subtitle}</p>
           </div>
 
-          <div class="mb-10 p-6 border border-white/10 rounded-lg bg-white/5 backdrop-blur-md">
-            <div class="text-3xl font-mono text-white mb-1">{service.price}</div>
-            {service.monthly && <div class="text-sm font-bold text-[#8B1A2B] uppercase tracking-widest">+ {service.monthly}</div>}
-            {!service.monthly && <div class="text-sm font-bold text-white/40 uppercase tracking-widest">Pago Único</div>}
+          <div class="mb-10 p-6 border border-black/10 rounded-lg bg-black/5 backdrop-blur-md">
+            <div class="text-3xl font-mono text-black mb-1">{service.price}</div>
+            {service.monthly && <div class="text-sm font-bold text-[#E8001C] uppercase tracking-widest">+ {service.monthly}</div>}
+            {!service.monthly && <div class="text-sm font-bold text-black/40 uppercase tracking-widest">Pago Único</div>}
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-6 tracking-wide uppercase">Características del Plan</h3>
+          <h3 class="text-lg font-bold text-black mb-6 tracking-wide uppercase">Características del Plan</h3>
           <ul class="space-y-4 mb-10">
             {service.features.map(feature => {
               if (feature === '---' || feature.startsWith('+') || feature.startsWith('Todo lo del')) {
-                return <li class="text-[#8B1A2B] font-bold text-sm uppercase tracking-widest mt-6 mb-2 border-b border-white/10 pb-2">{feature.replace('---', '')}</li>
+                return <li class="text-[#E8001C] font-bold text-sm uppercase tracking-widest mt-6 mb-2 border-b border-black/10 pb-2">{feature.replace('---', '')}</li>
               }
               return (
-                <li class="flex items-start gap-3 text-white/70 font-light">
-                  <svg class="shrink-0 mt-1 text-[#8B1A2B]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <li class="flex items-start gap-3 text-black/75 font-light">
+                  <svg class="shrink-0 mt-1 text-[#E8001C]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   {feature}
                 </li>
               )
             })}
           </ul>
 
-          <a href={`https://wa.me/56929645522?text=Hola,%20me%20interesa%20contratar%20el%20plan:%20${encodeURIComponent(service.title + ' - ' + service.subtitle)}`} target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center py-5 text-sm">
+          <a href={`https://api.whatsapp.com/send?phone=56929645522&text=Hola,%20me%20interesa%20adquirir%20el%20servicio:%20${encodeURIComponent(service.title + ' - ' + service.subtitle)}`} target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center py-5 text-sm">
             Contratar Servicio
           </a>
         </div>

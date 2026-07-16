@@ -2,25 +2,47 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="relative z-10 pt-20 pb-10 px-6 lg:px-10 border-t border-white/10 bg-black/80">
+<footer class="relative z-10 pt-0 pb-10 px-6 lg:px-10 bg-black border-t-0" id="footer">
   
-  <div class="max-w-7xl mx-auto flex flex-col items-center">
+  <!-- Línea roja superior Bull -->
+  <div class="h-[3px] w-full bg-gradient-to-r from-[#B8000E] via-[#E8001C] to-[#B8000E] mb-16"></div>
+
+  <div class="max-w-7xl mx-auto">
     
-    <div class="mb-12 flex flex-col items-center">
-      <img src="/images/logo.png" alt="VC Logo" class="w-8 h-8 object-contain mb-4 opacity-50 grayscale" />
-      <h3 class="text-lg font-bold tracking-widest uppercase text-white/80 mb-2">VisionCode</h3>
-      <p class="text-xs text-white/40 text-center max-w-sm uppercase tracking-widest">
-        Ingeniería de Software & Consultoría
-      </p>
+    <!-- Top: Logo + Links -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mb-14">
+      
+      <!-- Brand -->
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3">
+          <img src="/images/logo.png" alt="VC Logo" class="w-8 h-8 object-contain opacity-80" />
+          <h3 class="text-xl font-black tracking-wider uppercase text-white">
+            Vision<span class="text-[#E8001C]">Code</span>
+          </h3>
+        </div>
+        <p class="text-xs text-white/40 uppercase tracking-widest max-w-xs">
+          Ingeniería de Software &amp; Consultoría Digital
+        </p>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="flex flex-wrap gap-x-10 gap-y-4">
+        <a href="/#servicios" class="text-xs font-bold uppercase tracking-widest text-white/50 hover:text-[#E8001C] transition-colors">Soluciones</a>
+        <a href="/#impacto" class="text-xs font-bold uppercase tracking-widest text-white/50 hover:text-[#E8001C] transition-colors">Impacto</a>
+        <a href="/tienda" class="text-xs font-bold uppercase tracking-widest text-white/50 hover:text-[#E8001C] transition-colors">Servicios</a>
+        <a href="/#contacto" class="text-xs font-bold uppercase tracking-widest text-[#E8001C] hover:text-white transition-colors">Contacto</a>
+      </nav>
     </div>
 
-    <div class="w-full flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/5">
+    <!-- Bottom Divider -->
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-xs text-white/30 uppercase tracking-widest">
-        &copy; {year} Vision Code. All rights reserved.
+        &copy; {year} Vision Code. Todos los derechos reservados.
       </div>
       <div class="flex gap-6 text-xs text-white/40 uppercase tracking-widest font-bold">
-        <a href="#" class="hover:text-white transition-colors">Políticas</a>
-        <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+        <a href="#" class="hover:text-[#E8001C] transition-colors">Políticas</a>
+        <a href="#" class="hover:text-[#E8001C] transition-colors">LinkedIn</a>
+        <a href="https://api.whatsapp.com/send?phone=56929645522" target="_blank" class="hover:text-[#E8001C] transition-colors">WhatsApp</a>
       </div>
     </div>
   </div>

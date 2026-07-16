@@ -19,9 +19,9 @@ const storeItems = [
   <Navbar />
   
   <!-- AI Background Image -->
-  <div class="fixed inset-0 z-0 opacity-30 mix-blend-screen pointer-events-none">
-    <img src="/images/store_background.png" alt="Store Background" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
+  <div class="fixed inset-0 z-0 opacity-[0.03] pointer-events-none">
+    <img src="/images/store_background.png" alt="Store Background" class="w-full h-full object-cover filter invert" />
+    <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white"></div>
   </div>
 
   <main class="min-h-screen pt-32 pb-20 relative z-10">
@@ -33,10 +33,10 @@ const storeItems = [
           <div class="h-px bg-[var(--saas-brand)] w-16"></div>
           <div class="saas-badge border-none text-[var(--saas-brand)] tracking-[0.2em] text-[0.7rem] px-0 uppercase font-bold">Portal de Adquisición</div>
         </div>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white mb-6 leading-[1.1]">
-          Tienda <span class="text-transparent bg-clip-text bg-gradient-to-r from-white/60 to-white/20">Oficial.</span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-black mb-6 leading-[1.1]">
+          Servicios <span class="text-transparent bg-clip-text bg-gradient-to-r from-black to-black/40">Oficiales.</span>
         </h1>
-        <p class="text-lg text-white/50 max-w-2xl font-light">
+        <p class="text-lg text-black/60 max-w-2xl font-light">
           Seleccione y adquiera el servicio tecnológico que mejor se adapte a las necesidades de escalamiento de su empresa.
         </p>
       </div>
@@ -46,18 +46,18 @@ const storeItems = [
         
         <!-- Category Pills -->
         <div class="flex flex-wrap items-center gap-2">
-          <button class="filter-btn active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-[#8B1A2B] text-white border border-[#8B1A2B] shadow-[0_0_15px_rgba(139,26,43,0.4)]" data-filter="all">Todas</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="Web">Web Corporativa</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="E-Commerce">E-Commerce</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="Sistemas">Sistemas & ERP</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="IA">Inteligencia Artificial</button>
+          <button class="filter-btn active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-[#E8001C] text-white border border-[#E8001C] shadow-[0_0_15px_rgba(232,0,28,0.4)]" data-filter="all">Todas</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Web">Web Corporativa</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="E-Commerce">E-Commerce</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Sistemas">Sistemas & ERP</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="IA">Inteligencia Artificial</button>
         </div>
         
         <!-- Sorting Segmented Control -->
-        <div class="flex items-center p-1 bg-black/50 border border-white/10 rounded-full backdrop-blur-md">
-          <button class="sort-btn active px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all bg-white/10 text-white" data-sort="default">Recomendado</button>
-          <button class="sort-btn px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all text-white/50 hover:text-white" data-sort="asc">Menor Precio</button>
-          <button class="sort-btn px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all text-white/50 hover:text-white" data-sort="desc">Mayor Precio</button>
+        <div class="flex items-center p-1 bg-black/5 border border-black/10 rounded-full backdrop-blur-md">
+          <button class="sort-btn active px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all bg-black/10 text-black" data-sort="default">Recomendado</button>
+          <button class="sort-btn px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all text-black/50 hover:text-black" data-sort="asc">Menor Precio</button>
+          <button class="sort-btn px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all text-black/50 hover:text-black" data-sort="desc">Mayor Precio</button>
         </div>
 
       </div>
@@ -65,10 +65,10 @@ const storeItems = [
       <!-- Store Grid -->
       <div id="storeGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {storeItems.map((item, i) => (
-          <div class="store-item group bento-card relative overflow-hidden flex flex-col fade-up bg-black/40 border-white/10 hover:border-white/30" data-price={item.price} data-category={item.category} data-original-index={i} style={`transition-delay: ${i * 0.05}s`}>
+          <div class="store-item group bento-card relative overflow-hidden flex flex-col fade-up bg-white border-black/10 hover:border-black/20" data-price={item.price} data-category={item.category} data-original-index={i} style={`transition-delay: ${i * 0.05}s`}>
             
-            <a href={`/servicio/${item.id}`} class="relative h-[400px] w-full overflow-hidden bg-black/80 flex items-center justify-center p-4 cursor-pointer block">
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+            <a href={`/servicio/${item.id}`} class="relative h-[400px] w-full overflow-hidden bg-gray-50 flex items-center justify-center p-4 cursor-pointer block">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent z-10"></div>
               <img 
                 src={item.img} 
                 alt={item.title} 
@@ -77,14 +77,14 @@ const storeItems = [
               />
             </a>
             
-            <div class="p-6 relative z-20 flex flex-col grow justify-between bg-black/60 backdrop-blur-xl border-t border-white/5">
+            <div class="p-6 relative z-20 flex flex-col grow justify-between bg-white border-t border-black/5">
               <div class="mb-6">
-                <span class="text-[0.6rem] uppercase tracking-widest text-[#8B1A2B] font-bold mb-3 block">{item.category}</span>
-                <h3 class="text-lg font-bold text-white tracking-tight mb-2">{item.title}</h3>
-                <div class="text-sm font-bold text-white/80 bg-white/5 inline-block px-3 py-1 rounded-sm border border-white/10">{item.priceFormatted}</div>
+                <span class="text-[0.6rem] uppercase tracking-widest text-[#E8001C] font-bold mb-3 block">{item.category}</span>
+                <h3 class="text-lg font-bold text-black tracking-tight mb-2">{item.title}</h3>
+                <div class="text-sm font-bold text-black/80 bg-black/5 inline-block px-3 py-1 rounded-sm border border-black/10">{item.priceFormatted}</div>
               </div>
               
-              <a href={`https://wa.me/56929645522?text=Hola,%20me%20gustaría%20comprar%20el%20servicio:%20${encodeURIComponent(item.title)}`} target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-md bg-[#8B1A2B] hover:bg-white hover:text-[#8B1A2B] text-white text-xs font-bold uppercase tracking-[0.1em] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(139,26,43,0.3)] transition-all">
+              <a href={`https://api.whatsapp.com/send?phone=56929645522&text=Hola,%20me%20gustaría%20adquirir%20el%20servicio:%20${encodeURIComponent(item.title)}`} target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-md bg-[#E8001C] hover:bg-black hover:text-white text-white text-xs font-bold uppercase tracking-[0.1em] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(232,0,28,0.2)] transition-all">
                 Añadir al carrito
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
               </a>
@@ -153,12 +153,12 @@ const storeItems = [
       btn.addEventListener('click', (e) => {
         // Update UI
         filterBtns.forEach(b => {
-          b.classList.remove('bg-[#8B1A2B]', 'text-white', 'border-[#8B1A2B]', 'shadow-[0_0_15px_rgba(139,26,43,0.4)]');
-          b.classList.add('bg-black/40', 'text-white/50', 'border-white/10');
+          b.classList.remove('bg-[#E8001C]', 'text-white', 'border-[#E8001C]', 'shadow-[0_0_15px_rgba(232,0,28,0.4)]');
+          b.classList.add('bg-black/5', 'text-black/60', 'border-black/10');
         });
-        const target = e.currentTarget;
-        target.classList.remove('bg-black/40', 'text-white/50', 'border-white/10');
-        target.classList.add('bg-[#8B1A2B]', 'text-white', 'border-[#8B1A2B]', 'shadow-[0_0_15px_rgba(139,26,43,0.4)]');
+        const target = e.currentTarget as HTMLButtonElement;
+        target.classList.remove('bg-black/5', 'text-black/60', 'border-black/10');
+        target.classList.add('bg-[#E8001C]', 'text-white', 'border-[#E8001C]', 'shadow-[0_0_15px_rgba(232,0,28,0.4)]');
         
         currentCategory = target.getAttribute('data-filter');
         applyFilters();
@@ -170,12 +170,12 @@ const storeItems = [
       btn.addEventListener('click', (e) => {
         // Update UI
         sortBtns.forEach(b => {
-          b.classList.remove('bg-white/10', 'text-white');
-          b.classList.add('text-white/50');
+          b.classList.remove('bg-black/10', 'text-black');
+          b.classList.add('text-black/50');
         });
-        const target = e.currentTarget;
-        target.classList.remove('text-white/50');
-        target.classList.add('bg-white/10', 'text-white');
+        const target = e.currentTarget as HTMLButtonElement;
+        target.classList.remove('text-black/50');
+        target.classList.add('bg-black/10', 'text-black');
         
         currentSort = target.getAttribute('data-sort');
         applyFilters();

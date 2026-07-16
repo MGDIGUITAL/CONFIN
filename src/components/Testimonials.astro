@@ -43,7 +43,7 @@ const testimonials = [
 ];
 ---
 
-<section id="clientes" class="py-32 relative z-10 border-t border-white/5 bg-black/40 overflow-hidden">
+<section id="clientes" class="py-32 relative z-10 border-t border-black/5 bg-[#F6F6F6] overflow-hidden">
 
   <!-- Glow ambiental de fondo -->
   <div class="testimonials-glow" aria-hidden="true"></div>
@@ -53,7 +53,7 @@ const testimonials = [
     <!-- Header editorial -->
     <div class="mb-16 testimonials-header">
       <div class="flex items-center gap-4 mb-6">
-        <div class="h-px bg-gradient-to-r from-[#8B1A2B]/60 to-transparent w-16"></div>
+        <div class="h-px bg-gradient-to-r from-[#E8001C]/60 to-transparent w-16"></div>
         <span class="saas-badge border-none text-white/40 tracking-[0.18em] text-[0.6rem] px-0 uppercase">
           Confianza Corporativa
         </span>
@@ -140,7 +140,7 @@ const testimonials = [
     transform: translateX(-50%);
     width: 600px;
     height: 400px;
-    background: radial-gradient(ellipse, rgba(139, 26, 43, 0.07) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(232, 0, 28, 0.07) 0%, transparent 70%);
     pointer-events: none;
     filter: blur(40px);
   }
@@ -163,17 +163,15 @@ const testimonials = [
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.05;
-    color: #ffffff;
+    color: #0a0a0a;
     margin: 0 0 1rem 0;
   }
 
   .testimonials-heading-accent {
-    /* Gradient tipográfico: blanco → rojo oscuro → blanco/40 */
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(200, 200, 200, 0.6) 40%,
-      rgba(255, 255, 255, 0.2) 100%
+      #0a0a0a 0%,
+      #E8001C 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -182,7 +180,7 @@ const testimonials = [
 
   .testimonials-subtext {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.55);
     font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 1.6;
@@ -211,7 +209,7 @@ const testimonials = [
     right: 0;
     width: 80px;
     height: calc(100% - 1.5rem);
-    background: linear-gradient(to right, transparent, rgba(5, 5, 5, 0.95));
+    background: linear-gradient(to right, transparent, #F6F6F6);
     pointer-events: none;
     border-radius: 0 0.5rem 0.5rem 0;
   }
@@ -221,8 +219,9 @@ const testimonials = [
     flex-shrink: 0;
     width: 85vw;
     max-width: 400px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     border-radius: 0.5rem;
     padding: 2.25rem 2rem;
     display: flex;
@@ -253,14 +252,14 @@ const testimonials = [
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(139, 26, 43, 0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(232, 0, 28, 0.5), transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
   }
 
   .testimonials-card:hover {
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(232, 0, 28, 0.3);
+    background: #ffffff;
     transform: translateY(-3px);
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.3),
@@ -271,7 +270,7 @@ const testimonials = [
 
   /* ── Comilla ── */
   .testimonials-quote {
-    color: rgba(139, 26, 43, 0.45);
+    color: rgba(232, 0, 28, 0.45);
     line-height: 1;
     flex-shrink: 0;
   }
@@ -280,7 +279,7 @@ const testimonials = [
   .testimonials-text {
     font-size: 0.9rem;
     line-height: 1.75;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(0, 0, 0, 0.72);
     font-weight: 300;
     letter-spacing: 0.005em;
     margin: 0;
@@ -304,8 +303,8 @@ const testimonials = [
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(139, 26, 43, 0.2);
-    border: 1px solid rgba(139, 26, 43, 0.3);
+    background: rgba(232, 0, 28, 0.2);
+    border: 1px solid rgba(232, 0, 28, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -319,14 +318,14 @@ const testimonials = [
   .testimonials-name {
     font-size: 0.8rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    color: #0a0a0a;
     letter-spacing: 0.01em;
     line-height: 1.3;
   }
 
   .testimonials-role {
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.50);
     margin-top: 0.2rem;
     letter-spacing: 0.02em;
     line-height: 1.3;
@@ -346,7 +345,7 @@ const testimonials = [
     height: 2px;
     border: none;
     border-radius: 2px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.15);
     cursor: pointer;
     padding: 0;
     transition: background 0.3s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -354,7 +353,7 @@ const testimonials = [
 
   .testimonials-dot.active {
     width: 36px;
-    background: rgba(139, 26, 43, 0.8);
+    background: rgba(232, 0, 28, 0.8);
   }
 
   .testimonials-dot:hover:not(.active) {
