@@ -1,383 +1,257 @@
 ---
-// Vision Code Ventas — Agente de ventas VisionCode v2.0
 ---
-
 <div id="vc-agent">
-  <button id="vc-bubble" aria-label="Hablar con Asesor Vision Code">
+  <button id="vc-bubble" aria-label="Asesor Vision Code">
     <span id="vc-dot"></span>
-    <svg id="ico-chat" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-    </svg>
-    <svg id="ico-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-    </svg>
+    <svg id="ico-chat" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg id="ico-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
-
   <div id="vc-panel">
     <div id="vc-header">
       <div id="vc-avatar">VC</div>
-      <div id="vc-header-info">
-        <div id="vc-name">Vision Code · Asesor IA</div>
-        <div id="vc-status"><span class="dot-green"></span>En línea · Responde al instante</div>
+      <div id="vc-hinfo">
+        <div id="vc-name">Vision Code · Asesor Digital</div>
+        <div id="vc-status"><span class="dg"></span>En línea · Responde al instante</div>
       </div>
-      <button id="vc-close" aria-label="Cerrar chat">×</button>
+      <button id="vc-close">×</button>
     </div>
-
-    <div id="vc-quick-chips">
-      <button class="chip" data-msg="Ver precios y planes">💰 Ver planes</button>
-      <button class="chip" data-msg="Quiero una tienda online">🛒 E-Commerce</button>
-      <button class="chip" data-msg="Necesito un agente IA para WhatsApp">🤖 Agente IA</button>
-      <button class="chip" data-msg="Quiero cotizar un proyecto">📋 Cotizar</button>
+    <div id="vc-chips">
+      <button class="chip" data-q="precios">💰 Ver planes</button>
+      <button class="chip" data-q="ecommerce">🛒 E-Commerce</button>
+      <button class="chip" data-q="ia">🤖 Agente IA</button>
+      <button class="chip" data-q="erp">⚙️ ERP/Sistema</button>
+      <button class="chip" data-q="landing">🌐 Landing Web</button>
+      <button class="chip" data-q="cotizar">📋 Cotizar ahora</button>
     </div>
-
-    <div id="vc-messages"></div>
-
-    <div id="vc-capture-form" style="display:none;">
-      <input id="vc-cap-name" type="text" placeholder="Tu nombre o empresa..." autocomplete="off"/>
-      <input id="vc-cap-phone" type="tel" placeholder="+56 9 XXXX XXXX" autocomplete="off"/>
-      <button id="vc-cap-submit">Enviar y coordinar por WhatsApp</button>
+    <div id="vc-msgs"></div>
+    <div id="vc-lead" style="display:none">
+      <input id="lname" placeholder="Tu nombre o empresa..." autocomplete="off"/>
+      <input id="lphone" type="tel" placeholder="+56 9 XXXX XXXX" autocomplete="off"/>
+      <button id="lsend">📲 Contactar por WhatsApp</button>
     </div>
-
-    <div id="vc-input-row">
-      <input id="vc-input" type="text" placeholder="Pregúntame lo que necesitas..." autocomplete="off"/>
-      <button id="vc-send">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-        </svg>
-      </button>
+    <div id="vc-row">
+      <input id="vc-in" placeholder="Escribe tu pregunta..." autocomplete="off"/>
+      <button id="vc-send"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
     </div>
   </div>
 </div>
 
 <style>
-  #vc-agent { position: fixed; bottom: 24px; right: 24px; z-index: 9999; font-family: 'Inter', sans-serif; }
-
-  /* ── Burbuja ── */
-  #vc-bubble {
-    width: 60px; height: 60px; border-radius: 50%;
-    background: linear-gradient(135deg, #8B1A2B, #c0293f);
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 24px rgba(139,26,43,0.55);
-    position: relative;
-  }
-  #vc-bubble:hover { transform: scale(1.1); box-shadow: 0 6px 32px rgba(139,26,43,0.7); }
-  #ico-x { display: none; position: absolute; }
-  #vc-dot {
-    position: absolute; top: 10px; right: 10px;
-    width: 11px; height: 11px; background: #25D366;
-    border-radius: 50%; border: 2px solid #030303;
-    animation: pulse-dot 2s infinite;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
-    50% { box-shadow: 0 0 0 5px rgba(37,211,102,0); }
-  }
-
-  /* ── Panel ── */
-  #vc-panel {
-    position: absolute; bottom: 74px; right: 0;
-    width: 350px; background: #0d0d0d;
-    border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;
-    overflow: hidden; display: none; flex-direction: column;
-    box-shadow: 0 16px 60px rgba(0,0,0,0.75), 0 0 0 1px rgba(139,26,43,0.2);
-    animation: panel-in 0.3s cubic-bezier(0.16,1,0.3,1);
-  }
-  @keyframes panel-in {
-    from { opacity: 0; transform: translateY(12px) scale(0.97); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-  }
-  #vc-panel.open { display: flex; }
-
-  /* ── Header ── */
-  #vc-header {
-    background: linear-gradient(90deg, #0a0a0a, #110608);
-    padding: 14px 16px;
-    display: flex; align-items: center; gap: 10px;
-    border-bottom: 1px solid rgba(139,26,43,0.2);
-  }
-  #vc-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: linear-gradient(135deg, #8B1A2B, #c0293f);
-    display: flex; align-items: center;
-    justify-content: center; font-size: 11px; font-weight: 800;
-    color: #fff; flex-shrink: 0; letter-spacing: 0.05em;
-  }
-  #vc-header-info { flex: 1; }
-  #vc-name { font-size: 13px; font-weight: 700; color: #fff; }
-  #vc-status { font-size: 10px; color: #888; display: flex; align-items: center; gap: 4px; margin-top: 2px; }
-  .dot-green { width: 6px; height: 6px; background: #25D366; border-radius: 50%; display: inline-block; }
-  #vc-close { background: none; border: none; color: #555; cursor: pointer; font-size: 22px; padding: 0; line-height: 1; }
-  #vc-close:hover { color: #fff; }
-
-  /* ── Quick chips ── */
-  #vc-quick-chips {
-    display: flex; flex-wrap: wrap; gap: 6px;
-    padding: 10px 12px 8px;
-    background: #0a0a0a;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-  }
-  .chip {
-    font-size: 11px; padding: 5px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(139,26,43,0.4);
-    background: rgba(139,26,43,0.08);
-    color: #e0b0b8; cursor: pointer;
-    transition: all 0.15s ease; font-family: 'Inter', sans-serif;
-  }
-  .chip:hover { background: rgba(139,26,43,0.35); color: #fff; border-color: #8B1A2B; }
-
-  /* ── Messages ── */
-  #vc-messages {
-    flex: 1; min-height: 280px; max-height: 340px;
-    overflow-y: auto; padding: 14px 12px;
-    display: flex; flex-direction: column; gap: 10px;
-    background: #0d0d0d;
-  }
-  #vc-messages::-webkit-scrollbar { width: 3px; }
-  #vc-messages::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
-
-  .msg {
-    max-width: 88%; padding: 10px 14px;
-    font-size: 13px; line-height: 1.65; white-space: pre-line;
-  }
-  .msg.bot {
-    background: #181818; border: 1px solid rgba(255,255,255,0.06);
-    color: #e5e5e5; align-self: flex-start;
-    border-radius: 4px 14px 14px 14px;
-  }
-  .msg.user {
-    background: linear-gradient(135deg, #8B1A2B, #a01e30);
-    color: #fff; align-self: flex-end; font-weight: 500;
-    border-radius: 14px 4px 14px 14px;
-  }
-  .msg.typing { color: #555; font-style: italic; font-size: 12px; background: transparent; border: none; padding: 6px 14px; }
-
-  /* ── Typing dots ── */
-  .typing-dots { display: inline-flex; gap: 4px; align-items: center; }
-  .typing-dots span {
-    width: 6px; height: 6px; background: #555;
-    border-radius: 50%; animation: bounce-dot 1.2s infinite;
-  }
-  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce-dot {
-    0%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-6px); background: #8B1A2B; }
-  }
-
-  /* ── Capture form (lead final) ── */
-  #vc-capture-form {
-    flex-direction: column; gap: 8px;
-    padding: 10px 12px 12px;
-    background: rgba(139,26,43,0.05);
-    border-top: 1px solid rgba(139,26,43,0.2);
-  }
-  #vc-capture-form input {
-    width: 100%; font-size: 12px; padding: 9px 12px;
-    background: #1a1a1a; border: 1px solid #2a2a2a;
-    color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif;
-    box-sizing: border-box;
-  }
-  #vc-capture-form input:focus { outline: none; border-color: #8B1A2B; }
-  #vc-capture-form input::placeholder { color: #555; }
-  #vc-cap-submit {
-    width: 100%; padding: 11px;
-    background: #25D366; color: #fff;
-    border: none; border-radius: 8px;
-    font-size: 12px; font-weight: 700;
-    cursor: pointer; transition: background 0.15s;
-    font-family: 'Inter', sans-serif; letter-spacing: 0.02em;
-  }
-  #vc-cap-submit:hover { background: #1ebe5d; }
-
-  /* ── Input row ── */
-  #vc-input-row {
-    display: flex; gap: 8px; padding: 10px 12px;
-    border-top: 1px solid rgba(255,255,255,0.05); background: #0d0d0d;
-  }
-  #vc-input {
-    flex: 1; font-size: 13px; padding: 9px 12px;
-    background: #1a1a1a; border: 1px solid #2a2a2a;
-    color: #fff; border-radius: 10px; font-family: 'Inter', sans-serif;
-    outline: none; transition: border-color 0.2s;
-  }
-  #vc-input:focus { border-color: #8B1A2B; }
-  #vc-input::placeholder { color: #555; }
-  #vc-send {
-    width: 38px; height: 38px; background: #8B1A2B;
-    border: none; border-radius: 10px; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    transition: background 0.15s;
-  }
-  #vc-send:hover { background: #a01e30; }
+#vc-agent{position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Inter',sans-serif}
+#vc-bubble{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#8B1A2B,#c0293f);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(139,26,43,.55);position:relative;transition:transform .2s,box-shadow .2s}
+#vc-bubble:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(139,26,43,.7)}
+#ico-x{display:none;position:absolute}
+#vc-dot{position:absolute;top:10px;right:10px;width:11px;height:11px;background:#25D366;border-radius:50%;border:2px solid #030303;animation:pd 2s infinite}
+@keyframes pd{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 5px rgba(37,211,102,0)}}
+#vc-panel{position:absolute;bottom:74px;right:0;width:348px;background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 16px 60px rgba(0,0,0,.75),0 0 0 1px rgba(139,26,43,.2)}
+#vc-panel.open{display:flex;animation:pin .3s cubic-bezier(.16,1,.3,1)}
+@keyframes pin{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+#vc-header{background:linear-gradient(90deg,#0a0a0a,#110608);padding:14px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(139,26,43,.2)}
+#vc-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#8B1A2B,#c0293f);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0;letter-spacing:.05em}
+#vc-hinfo{flex:1}
+#vc-name{font-size:13px;font-weight:700;color:#fff}
+#vc-status{font-size:10px;color:#888;display:flex;align-items:center;gap:4px;margin-top:2px}
+.dg{width:6px;height:6px;background:#25D366;border-radius:50%;display:inline-block}
+#vc-close{background:none;border:none;color:#555;cursor:pointer;font-size:22px;padding:0;line-height:1}
+#vc-close:hover{color:#fff}
+#vc-chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 8px;background:#0a0a0a;border-bottom:1px solid rgba(255,255,255,.04)}
+.chip{font-size:11px;padding:5px 10px;border-radius:20px;border:1px solid rgba(139,26,43,.4);background:rgba(139,26,43,.08);color:#e0b0b8;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+.chip:hover{background:rgba(139,26,43,.35);color:#fff;border-color:#8B1A2B}
+#vc-msgs{flex:1;min-height:280px;max-height:340px;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;background:#0d0d0d}
+#vc-msgs::-webkit-scrollbar{width:3px}
+#vc-msgs::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:4px}
+.msg{max-width:88%;padding:10px 14px;font-size:13px;line-height:1.65;white-space:pre-line}
+.bot{background:#181818;border:1px solid rgba(255,255,255,.06);color:#e5e5e5;align-self:flex-start;border-radius:4px 14px 14px 14px}
+.usr{background:linear-gradient(135deg,#8B1A2B,#a01e30);color:#fff;align-self:flex-end;font-weight:500;border-radius:14px 4px 14px 14px}
+.tdots{color:#555;font-style:italic;font-size:12px;background:transparent;border:none;padding:6px 14px;align-self:flex-start}
+.dots-wrap{display:inline-flex;gap:4px;align-items:center}
+.dots-wrap span{width:6px;height:6px;background:#555;border-radius:50%;animation:bd 1.2s infinite}
+.dots-wrap span:nth-child(2){animation-delay:.2s}
+.dots-wrap span:nth-child(3){animation-delay:.4s}
+@keyframes bd{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px);background:#8B1A2B}}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:4px 0;padding:11px 16px;background:#25D366;color:#fff;border-radius:10px;font-size:12px;font-weight:700;text-decoration:none;transition:background .15s}
+.wa-btn:hover{background:#1ebe5d}
+.scard{background:linear-gradient(135deg,rgba(139,26,43,.15),rgba(10,5,6,.8));border:1px solid rgba(139,26,43,.4);border-left:3px solid #8B1A2B;border-radius:8px;padding:12px 14px;font-size:12px;color:#e0b0b8;line-height:1.7}
+.scard strong{color:#fff;display:block;margin-bottom:4px;font-size:13px}
+#vc-lead{flex-direction:column;gap:8px;padding:10px 12px 12px;background:rgba(139,26,43,.05);border-top:1px solid rgba(139,26,43,.2)}
+#vc-lead input{width:100%;font-size:12px;padding:9px 12px;background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;border-radius:8px;font-family:'Inter',sans-serif;box-sizing:border-box}
+#vc-lead input:focus{outline:none;border-color:#8B1A2B}
+#vc-lead input::placeholder{color:#555}
+#lsend{width:100%;padding:11px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
+#lsend:hover{background:#1ebe5d}
+#vc-row{display:flex;gap:8px;padding:10px 12px;border-top:1px solid rgba(255,255,255,.05);background:#0d0d0d}
+#vc-in{flex:1;font-size:13px;padding:9px 12px;background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;border-radius:10px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+#vc-in:focus{border-color:#8B1A2B}
+#vc-in::placeholder{color:#555}
+#vc-send{width:38px;height:38px;background:#8B1A2B;border:none;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
+#vc-send:hover{background:#a01e30}
 </style>
 
 <script>
-const WA_NUM = '56929645522';
-const API_ENDPOINT = '/api/constanza';
+const WA = '56929645522';
 
-// Historial de la conversación para la IA
-let conversationHistory = [];
-let captureTriggered = false;
-let isProcessing = false;
-let started = false;
+// ── Base de conocimiento ─────────────────────────────────────
+const KB = {
+  precios: {
+    keys: ['precio','plan','planes','servicio','cuánto','cuanto','vale','cuesta','costo','tarifa','lista'],
+    reply: `📋 Nuestros 8 planes disponibles:\n\n🌐 Landing Básica → $60.000 CLP\n🏢 Portal Corporativo → $80.000 CLP\n🛒 E-Commerce Básico → $150.000 CLP\n🛒 E-Commerce Intermedio → $160.000 CLP\n🛒 E-Commerce Profesional → $200.000 CLP\n⚙️ Vision Code Pro (Web+Tienda+ERP) → $350.000 CLP\n🤖 Agente IA WhatsApp Estándar → $100.000 + $30k/mes\n🤖 Agente IA WhatsApp Premium → $100.000 + $30k/mes\n\n¿Cuál se ajusta más a tu negocio?`
+  },
+  landing: {
+    keys: ['landing','página web','pagina web','sitio web','web','página','presencia','presencia digital'],
+    reply: `🌐 Para sitios web tenemos 2 opciones:\n\n✅ *Landing Básica — $60.000 CLP*\n1 página profesional, hosting + dominio 1 año, logo IA, formulario de contacto.\n\n✅ *Portal Corporativo — $80.000 CLP*\n6 páginas, blog, Google Analytics, ideal para empresas B2B.\n\nSi quieres que tu empresa tenga autoridad digital desde el día uno, el Portal Corporativo es la mejor inversión. ¿Te cuento más?`
+  },
+  ecommerce: {
+    keys: ['ecommerce','e-commerce','tienda','vender','venta online','productos','shop','carrito','mercado pago','webpay'],
+    reply: `🛒 Para vender online tenemos 3 planes:\n\n• *Básico* — $150.000 | Hasta 20 productos\n• *Intermedio* — $160.000 | Hasta 40 productos\n• *Profesional* — $200.000 | Más de 50 productos ⭐ (más elegido)\n\nTodos incluyen Webpay + MercadoPago, panel de administración, hosting y dominio el primer año.\n\n¿Cuántos productos tienes aproximadamente?`
+  },
+  ia: {
+    keys: ['ia','inteligencia artificial','agente','whatsapp','bot','automatizar','chatbot','respuesta automática','respuestas automáticas','asistente'],
+    reply: `🤖 Nuestro Agente IA para WhatsApp Business automatiza la atención al cliente 24/7:\n\n✅ *Estándar — $100.000 + $30k/mes*\nResponde solo, entrenado con info de tu negocio, soporte continuo.\n\n✅ *Premium — $100.000 + $30k/mes*\nMeta Verified, API oficial, hasta 4 dispositivos, protección contra suplantación.\n\nEmpresas que lo han implementado filtran hasta un 60% de consultas repetitivas. ¿Te interesa?`
+  },
+  erp: {
+    keys: ['erp','sistema','gestión','inventario','crm','interno','administración','control','proceso'],
+    reply: `⚙️ Nuestro plan más completo es el *Vision Code Pro — $350.000 CLP*:\n\n✅ Landing + Tienda E-Commerce completa\n✅ ERP interno con gestión de inventario\n✅ Panel de clientes y proveedores\n✅ Reportes y estadísticas\n✅ Roles y permisos de usuarios\n✅ Capacitación incluida + soporte 60 días\n\nPerfecto para empresas que quieren centralizar sus operaciones. ¿Tu negocio maneja inventario actualmente?`
+  },
+  cotizar: {
+    keys: ['cotizar','cotización','contratar','quiero','interesa','presupuesto','proyecto','empezar','iniciar','información'],
+    reply: `¡Perfecto! Para enviarte una propuesta formal, déjame tus datos 👇\n\nUn asesor senior te contactará hoy mismo para entender tu proyecto y darte el plan exacto.`,
+    action: 'lead'
+  },
+  saludo: {
+    keys: ['hola','buenas','hey','saludos','buenos días','buenas tardes','buenas noches'],
+    reply: `¡Hola! 👋 Bienvenido a Vision Code.\n\nSomos una consultora de ingeniería digital especializada en multiplicar las ventas de tu negocio a través de tecnología de primer nivel.\n\n¿En qué puedo orientarte hoy? Puedes usar los botones de arriba o escribirme directamente.`
+  },
+  gracias: {
+    keys: ['gracias','muchas gracias','genial','perfecto','excelente','increíble'],
+    reply: `¡Con gusto! 😊 Para nosotros lo más importante es que tomes la mejor decisión para tu negocio.\n\n¿Hay algo más en que pueda ayudarte?`
+  },
+  default: `Entiendo tu consulta 🤝 En Vision Code trabajamos con Landing Pages, E-Commerce, Agentes IA para WhatsApp y Sistemas ERP.\n\nPara darte la mejor recomendación, ¿podrías contarme un poco más sobre tu negocio o qué necesitas mejorar?`
+};
 
-// DOM
-const bubble      = document.getElementById('vc-bubble');
-const panel       = document.getElementById('vc-panel');
-const closeBtn    = document.getElementById('vc-close');
-const msgsEl      = document.getElementById('vc-messages');
-const inputEl     = document.getElementById('vc-input');
-const sendBtn     = document.getElementById('vc-send');
-const chips       = document.querySelectorAll('.chip');
-const captureForm = document.getElementById('vc-capture-form');
-const capName     = document.getElementById('vc-cap-name');
-const capPhone    = document.getElementById('vc-cap-phone');
-const capSubmit   = document.getElementById('vc-cap-submit');
+// ── Motor de intención ──────────────────────────────────────
+function detect(text) {
+  const t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  for (const [intent, data] of Object.entries(KB)) {
+    if (intent === 'default') continue;
+    if (data.keys && data.keys.some(k => t.includes(k.normalize('NFD').replace(/[\u0300-\u036f]/g,'')))) {
+      return data;
+    }
+  }
+  return null;
+}
 
-// ── Utilidades ──────────────────────────────────────────────
-function scroll() { msgsEl.scrollTop = msgsEl.scrollHeight; }
+// ── DOM ─────────────────────────────────────────────────────
+const bubble = document.getElementById('vc-bubble');
+const panel  = document.getElementById('vc-panel');
+const msgs   = document.getElementById('vc-msgs');
+const input  = document.getElementById('vc-in');
+const sendB  = document.getElementById('vc-send');
+const lead   = document.getElementById('vc-lead');
+const lname  = document.getElementById('lname');
+const lphone = document.getElementById('lphone');
+const lsend  = document.getElementById('lsend');
+let started = false, busy = false, leadShown = false;
 
-function addMsg(text, cls) {
+function scroll(){ msgs.scrollTop = msgs.scrollHeight; }
+
+function addMsg(text, cls){
   const d = document.createElement('div');
   d.className = 'msg ' + cls;
   d.textContent = text;
-  msgsEl.appendChild(d);
+  msgs.appendChild(d);
   scroll();
   return d;
 }
 
-function addTyping() {
-  const d = document.createElement('div');
-  d.className = 'msg bot typing';
-  d.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-  msgsEl.appendChild(d);
-  scroll();
-  return d;
+function addEl(el){ msgs.appendChild(el); scroll(); }
+
+function addWABtn(text, waText){
+  const a = document.createElement('a');
+  a.className = 'wa-btn';
+  a.href = `https://wa.me/${WA}?text=${encodeURIComponent(waText)}`;
+  a.target = '_blank';
+  a.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.104.549 4.078 1.504 5.798L.057 23.428c-.083.334.216.633.55.55l5.63-1.447A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.003-1.37l-.358-.214-3.724.956.989-3.607-.235-.372A9.816 9.816 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>${text}`;
+  addEl(a);
 }
 
-function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+function delay(ms){ return new Promise(r => setTimeout(r, ms)); }
 
-// ── Llamada a la IA ────────────────────────────────────────
-async function askAI(userMessage) {
-  conversationHistory.push({ role: 'user', content: userMessage });
+async function botReply(text, action){
+  const t = document.createElement('div');
+  t.className = 'msg tdots';
+  t.innerHTML = '<div class="dots-wrap"><span></span><span></span><span></span></div>';
+  msgs.appendChild(t); scroll();
+  await delay(900);
+  t.remove();
+  addMsg(text, 'bot');
+  if(action === 'lead' && !leadShown){
+    leadShown = true;
+    lead.style.display = 'flex';
+  }
+  busy = false;
+}
 
-  const typing = addTyping();
-  await delay(500);
-
-  try {
-    const res = await fetch(API_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: conversationHistory }),
-    });
-
-    const data = await res.json();
-    typing.remove();
-
-    const reply = data.reply || 'Lo siento, hubo un error. Inténtalo de nuevo.';
-    conversationHistory.push({ role: 'assistant', content: reply });
-
-    addMsg(reply, 'bot');
-
-    // Activar el formulario de captura de lead si detecta interés real
-    const interestKeywords = ['precio', 'contratar', 'quiero', 'cotizar', 'presupuesto', 'coordinar', 'más info', 'cuánto', 'cuántos', 'interesa', 'adelante'];
-    if (!captureTriggered && interestKeywords.some(k => userMessage.toLowerCase().includes(k))) {
-      captureTriggered = true;
-      await delay(800);
-      addMsg('Para conectarte con un asesor senior, déjame tus datos y te contactamos hoy mismo 👇', 'bot');
-      await delay(400);
-      captureForm.style.display = 'flex';
-      capName.focus();
-    }
-
-  } catch {
-    typing.remove();
-    addMsg('❌ Hubo un error de conexión. Por favor, inténtalo nuevamente.', 'bot');
-  } finally {
-    isProcessing = false;
+async function handle(q){
+  if(busy) return;
+  busy = true;
+  const match = detect(q);
+  if(match){
+    await botReply(match.reply, match.action);
+  } else {
+    await botReply(KB.default);
   }
 }
 
-// ── Inicio del chat ────────────────────────────────────────
-async function start() {
-  const typing = addTyping();
-  await delay(900);
-  typing.remove();
-  addMsg('¡Hola! Soy el asesor digital de Vision Code 👋\n\nSoy un agente IA entrenado para orientarte hacia el ecosistema digital que multiplicará tus ventas. ¿En qué puedo ayudarte hoy?', 'bot');
-  conversationHistory.push({
-    role: 'assistant',
-    content: '¡Hola! Soy el asesor digital de Vision Code 👋\n\nSoy un agente IA entrenado para orientarte hacia el ecosistema digital que multiplicará tus ventas. ¿En qué puedo ayudarte hoy?'
+// Chips
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    const q = c.dataset.q;
+    addMsg(c.textContent.trim(), 'usr');
+    handle(q);
   });
-  isProcessing = false;
-}
+});
 
-// ── Envío de mensaje ────────────────────────────────────────
-async function doSend() {
-  const val = inputEl.value.trim();
-  if (!val || isProcessing) return;
-  isProcessing = true;
-  inputEl.value = '';
-  addMsg(val, 'user');
-  await delay(200);
-  await askAI(val);
+// Enviar mensaje
+async function doSend(){
+  const v = input.value.trim();
+  if(!v || busy) return;
+  input.value = '';
+  addMsg(v, 'usr');
+  await delay(100);
+  handle(v);
 }
+sendB.addEventListener('click', doSend);
+input.addEventListener('keydown', e => { if(e.key==='Enter') doSend(); });
 
-// ── Captura de lead y cierre WhatsApp ──────────────────────
-capSubmit.addEventListener('click', async () => {
-  const name  = capName.value.trim();
-  const phone = capPhone.value.trim();
-  if (!name || !phone) {
-    capName.style.borderColor  = !name  ? '#8B1A2B' : '#2a2a2a';
-    capPhone.style.borderColor = !phone ? '#8B1A2B' : '#2a2a2a';
+// Lead capture
+lsend.addEventListener('click', () => {
+  const n = lname.value.trim();
+  const p = lphone.value.trim();
+  if(!n || !p){
+    lname.style.borderColor = !n ? '#8B1A2B' : '#2a2a2a';
+    lphone.style.borderColor = !p ? '#8B1A2B' : '#2a2a2a';
     return;
   }
-
-  captureForm.style.display = 'none';
-
-  // Construir resumen de la conversación para WhatsApp
-  const lastBotMsg = conversationHistory.filter(m => m.role === 'assistant').pop()?.content || '';
-  const waText = `🌐 *LEAD Vision Code*\n\n👤 *Nombre:* ${name}\n📞 *Teléfono:* ${phone}\n\n📋 *Resumen de la consulta:*\n${lastBotMsg.slice(0, 300)}`;
-
-  addMsg(`¡Gracias, ${name}! 🚀 Estás siendo redirigido a nuestro canal de WhatsApp para coordinar tu proyecto.`, 'bot');
-  await delay(600);
-
-  const waLink = document.createElement('a');
-  waLink.href = `https://wa.me/${WA_NUM}?text=${encodeURIComponent(waText)}`;
-  waLink.target = '_blank';
-  waLink.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:8px;margin:4px 0;padding:12px 16px;background:#25D366;color:#fff;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;transition:background 0.15s;';
-  waLink.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.104.549 4.078 1.504 5.798L.057 23.428c-.083.334.216.633.55.55l5.63-1.447A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.003-1.37l-.358-.214-3.724.956.989-3.607-.235-.372A9.816 9.816 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>Coordinar por WhatsApp ahora`;
-  msgsEl.appendChild(waLink);
-  scroll();
+  lead.style.display = 'none';
+  addMsg(`¡Gracias ${n}! 🚀 Te derivamos ahora con un asesor senior por WhatsApp.`, 'bot');
+  const waMsg = `🌐 *Lead Vision Code*\n👤 Nombre: ${n}\n📞 Teléfono: ${p}\n🔗 Desde: visión web`;
+  setTimeout(() => addWABtn('Coordinar ahora por WhatsApp →', waMsg), 400);
 });
 
-// ── Chips de acceso rápido ──────────────────────────────────
-chips.forEach(chip => {
-  chip.addEventListener('click', () => {
-    const msg = chip.dataset.msg;
-    if (!msg || isProcessing) return;
-    isProcessing = true;
-    addMsg(msg, 'user');
-    askAI(msg);
-  });
-});
-
-// ── Toggle burbuja ──────────────────────────────────────────
+// Toggle
 bubble.addEventListener('click', () => {
   const open = panel.classList.toggle('open');
   document.getElementById('ico-chat').style.display = open ? 'none' : 'block';
   document.getElementById('ico-x').style.display = open ? 'block' : 'none';
-  if (open && !started) { started = true; isProcessing = true; start(); }
+  if(open && !started){
+    started = true; busy = true;
+    botReply('¡Hola! 👋 Soy el asesor digital de Vision Code.\n\nEstoy aquí para orientarte hacia el ecosistema digital que multiplicará tus ventas. ¿Tienes alguna duda o quieres ver nuestros planes?');
+  }
 });
 
-closeBtn.addEventListener('click', () => {
+document.getElementById('vc-close').addEventListener('click', () => {
   panel.classList.remove('open');
   document.getElementById('ico-chat').style.display = 'block';
   document.getElementById('ico-x').style.display = 'none';
 });
-
-sendBtn.addEventListener('click', doSend);
-inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') doSend(); });
 </script>
