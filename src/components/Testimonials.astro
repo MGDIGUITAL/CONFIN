@@ -24,6 +24,21 @@ const testimonials = [
     name: "Felipe Echeverría",
     role: "Founder, FinTech Latam",
     text: "Arquitectura sólida, código limpio y una comunicación directa. Es nuestra consultora de desarrollo de cabecera para proyectos críticos."
+  },
+  {
+    name: "Marcos Villanueva",
+    role: "Director de Marketing, AutoMundo",
+    text: "Teníamos un diseño web muy básico. Vision Code nos entregó una plataforma premium y un sistema interno que automatizó la atención de clientes 24/7."
+  },
+  {
+    name: "Andrea Ferrer",
+    role: "Fundadora, E-Commerce B2C",
+    text: "Multiplicamos nuestras ventas drásticamente gracias a la optimización de conversión (CRO) y la velocidad de carga extrema de nuestra nueva tienda."
+  },
+  {
+    name: "Javier Cifuentes",
+    role: "Gerente de Innovación TI",
+    text: "La implementación de los agentes de Inteligencia Artificial en nuestro WhatsApp corporativo filtró el 60% de consultas, ahorrando muchísimo tiempo."
   }
 ];
 ---
@@ -405,7 +420,37 @@ const testimonials = [
       dot.addEventListener('click', () => {
         const cardWidth = slider.scrollWidth / dots.length;
         slider.scrollTo({ left: cardWidth * i, behavior: 'smooth' });
+        resetAutoPlay();
       });
+    });
+
+    // ── Auto-play feature ───────────────────────────────────────
+    let autoPlayInterval;
+    const startAutoPlay = () => {
+      autoPlayInterval = setInterval(() => {
+        if (!isDown) {
+          const cardWidth = slider.scrollWidth / dots.length;
+          let nextScroll = slider.scrollLeft + cardWidth;
+          // Check if we hit the end (accounting for client width)
+          if (nextScroll >= slider.scrollWidth - slider.clientWidth - 10) {
+            nextScroll = 0;
+          }
+          slider.scrollTo({ left: nextScroll, behavior: 'smooth' });
+        }
+      }, 3500);
+    };
+
+    const resetAutoPlay = () => {
+      clearInterval(autoPlayInterval);
+      startAutoPlay();
+    };
+
+    startAutoPlay(); // Start on load
+
+    // Pause auto-play on hover so users can read
+    slider.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    slider.addEventListener('mouseleave', () => {
+      if (!isDown) startAutoPlay();
     });
   }
 

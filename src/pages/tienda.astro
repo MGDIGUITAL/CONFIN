@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const storeItems = [
+  { id: "agente-ia-whatsapp-estandar", img: "/catalogo/catalog-01.png", title: "Agente IA WhatsApp (Estándar)", price: 100000, priceFormatted: "$100.000 + 30k/mes", category: "IA" },
+  { id: "agente-ia-whatsapp-premium", img: "/catalogo/catalog-02.png", title: "Agente IA WhatsApp (Premium)", price: 100000, priceFormatted: "$100.000 + 30k/mes", category: "IA" },
+  { id: "ecommerce-profesional", img: "/catalogo/catalog-03.png", title: "E-Commerce Profesional (+50 prod)", price: 200000, priceFormatted: "$200.000 CLP", category: "E-Commerce" },
+  { id: "landing-portal-corporativo", img: "/catalogo/catalog-04.png", title: "Landing + Portal Corporativo", price: 80000, priceFormatted: "$80.000 CLP", category: "Web" },
+  { id: "plan-vision-code-pro", img: "/catalogo/catalog-05.png", title: "Plan Vision Code Pro (Web+Tienda+ERP)", price: 350000, priceFormatted: "$350.000 CLP", category: "Sistemas" },
+  { id: "ecommerce-basico", img: "/catalogo/catalog-06.png", title: "E-Commerce Básico (Hasta 20 prod)", price: 150000, priceFormatted: "$150.000 CLP", category: "E-Commerce" },
+  { id: "ecommerce-intermedio", img: "/catalogo/catalog-07.png", title: "E-Commerce Intermedio (Hasta 40 prod)", price: 160000, priceFormatted: "$160.000 CLP", category: "E-Commerce" },
+  { id: "landing-basica", img: "/catalogo/catalog-08.png", title: "Landing Page Básica", price: 60000, priceFormatted: "$60.000 CLP", category: "Web" },
+];
+---
+
+<Layout>
+  <Navbar />
+  
+  <!-- AI Background Image -->
+  <div class="fixed inset-0 z-0 opacity-30 mix-blend-screen pointer-events-none">
+    <img src="/images/store_background.png" alt="Store Background" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
+  </div>
+
+  <main class="min-h-screen pt-32 pb-20 relative z-10">
+    <div class="max-w-[90rem] mx-auto px-6 lg:px-10">
+      
+      <!-- Tienda Header -->
+      <div class="mb-16 fade-up">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="h-px bg-[var(--saas-brand)] w-16"></div>
+          <div class="saas-badge border-none text-[var(--saas-brand)] tracking-[0.2em] text-[0.7rem] px-0 uppercase font-bold">Portal de Adquisición</div>
+        </div>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white mb-6 leading-[1.1]">
+          Tienda <span class="text-transparent bg-clip-text bg-gradient-to-r from-white/60 to-white/20">Oficial.</span>
+        </h1>
+        <p class="text-lg text-white/50 max-w-2xl font-light">
+          Seleccione y adquiera el servicio tecnológico que mejor se adapte a las necesidades de escalamiento de su empresa.
+        </p>
+      </div>
+
+      <!-- Filters & Sorting -->
+      <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 mb-12 fade-up">
+        
+        <!-- Category Pills -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button class="filter-btn active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-[#8B1A2B] text-white border border-[#8B1A2B] shadow-[0_0_15px_rgba(139,26,43,0.4)]" data-filter="all">Todas</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="Web">Web Corporativa</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="E-Commerce">E-Commerce</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="Sistemas">Sistemas & ERP</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/40 text-white/50 border border-white/10 hover:border-white/30 hover:text-white backdrop-blur-md" data-filter="IA">Inteligencia Artificial</button>
+        </div>
+        
+        <!-- Sorting Segmented Control -->
+        <div class="flex items-center p-1 bg-black/50 border border-white/10 rounded-full backdrop-blur-md">
+          <button class="sort-btn active px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all bg-white/10 text-white" data-sort="default">Recomendado</button>
+          <button class="sort-btn px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all text-white/50 hover:text-white" data-sort="asc">Menor Precio</button>
+          <button class="sort-btn px-4 py-2 rounded-full text-[0.65rem] font-bold uppercase tracking-widest transition-all text-white/50 hover:text-white" data-sort="desc">Mayor Precio</button>
+        </div>
+
+      </div>
+
+      <!-- Store Grid -->
+      <div id="storeGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {storeItems.map((item, i) => (
+          <div class="store-item group bento-card relative overflow-hidden flex flex-col fade-up bg-black/40 border-white/10 hover:border-white/30" data-price={item.price} data-category={item.category} data-original-index={i} style={`transition-delay: ${i * 0.05}s`}>
+            
+            <a href={`/servicio/${item.id}`} class="relative h-[400px] w-full overflow-hidden bg-black/80 flex items-center justify-center p-4 cursor-pointer block">
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+              <img 
+                src={item.img} 
+                alt={item.title} 
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out relative z-0"
+                loading="lazy"
+              />
+            </a>
+            
+            <div class="p-6 relative z-20 flex flex-col grow justify-between bg-black/60 backdrop-blur-xl border-t border-white/5">
+              <div class="mb-6">
+                <span class="text-[0.6rem] uppercase tracking-widest text-[#8B1A2B] font-bold mb-3 block">{item.category}</span>
+                <h3 class="text-lg font-bold text-white tracking-tight mb-2">{item.title}</h3>
+                <div class="text-sm font-bold text-white/80 bg-white/5 inline-block px-3 py-1 rounded-sm border border-white/10">{item.priceFormatted}</div>
+              </div>
+              
+              <a href={`https://wa.me/56929645522?text=Hola,%20me%20gustaría%20comprar%20el%20servicio:%20${encodeURIComponent(item.title)}`} target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-md bg-[#8B1A2B] hover:bg-white hover:text-[#8B1A2B] text-white text-xs font-bold uppercase tracking-[0.1em] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(139,26,43,0.3)] transition-all">
+                Añadir al carrito
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    const storeGrid = document.getElementById('storeGrid');
+    
+    if(!storeGrid || filterBtns.length === 0) return;
+    
+    const items = Array.from(document.querySelectorAll('.store-item'));
+    
+    let currentCategory = 'all';
+    let currentSort = 'default';
+
+    function applyFilters() {
+      // Filter
+      let visibleItems = items.filter(item => {
+        const matchCategory = currentCategory === 'all' || item.getAttribute('data-category') === currentCategory;
+        if(matchCategory) {
+          item.style.display = 'flex';
+          return true;
+        } else {
+          item.style.display = 'none';
+          return false;
+        }
+      });
+
+      // Sort
+      if (currentSort === 'asc') {
+        visibleItems.sort((a, b) => parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price')));
+      } else if (currentSort === 'desc') {
+        visibleItems.sort((a, b) => parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price')));
+      } else {
+        // default by original index
+        visibleItems.sort((a, b) => parseInt(a.getAttribute('data-original-index')) - parseInt(b.getAttribute('data-original-index')));
+      }
+
+      // Re-append to grid in new order with animation
+      visibleItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.95)';
+        storeGrid.appendChild(item);
+        
+        setTimeout(() => {
+          item.style.transition = 'all 0.4s ease';
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+        }, 50);
+      });
+    }
+
+    // Category Click Events
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Update UI
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-[#8B1A2B]', 'text-white', 'border-[#8B1A2B]', 'shadow-[0_0_15px_rgba(139,26,43,0.4)]');
+          b.classList.add('bg-black/40', 'text-white/50', 'border-white/10');
+        });
+        const target = e.currentTarget;
+        target.classList.remove('bg-black/40', 'text-white/50', 'border-white/10');
+        target.classList.add('bg-[#8B1A2B]', 'text-white', 'border-[#8B1A2B]', 'shadow-[0_0_15px_rgba(139,26,43,0.4)]');
+        
+        currentCategory = target.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+
+    // Sort Click Events
+    sortBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Update UI
+        sortBtns.forEach(b => {
+          b.classList.remove('bg-white/10', 'text-white');
+          b.classList.add('text-white/50');
+        });
+        const target = e.currentTarget;
+        target.classList.remove('text-white/50');
+        target.classList.add('bg-white/10', 'text-white');
+        
+        currentSort = target.getAttribute('data-sort');
+        applyFilters();
+      });
+    });
+
+  });
+</script>

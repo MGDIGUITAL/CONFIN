@@ -1,89 +1,80 @@
 ---
-const projects = [
-  {
-    title: "Plataforma E-commerce Global",
-    category: "Retail Tech",
-    url: "#",
-    status: "published",
-    image: "/images/proyectos/ecommerce.png"
-  },
-  {
-    title: "Portal Corporativo de Inversiones",
-    category: "FinTech",
-    url: "#",
-    status: "updating",
-    image: "/images/proyectos/web.png"
-  },
-  {
-    title: "Sistema ERP para Logística",
-    category: "Administración / SaaS",
-    url: "#",
-    status: "updating",
-    image: "/images/proyectos/erp.png"
-  },
-  {
-    title: "Arquitectura Web Institucional",
-    category: "Corporate",
-    url: "#",
-    status: "published",
-    image: "/images/proyectos/web.png"
-  }
-];
 ---
 
-<section id="proyectos" class="py-40 relative z-10 overflow-hidden">
+<section id="impacto" class="py-40 relative z-10 overflow-hidden">
   <div class="max-w-[90rem] mx-auto px-6 lg:px-12">
     
     <div class="flex flex-col md:flex-row justify-between items-end gap-10 mb-28 fade-up">
-      <div>
-        <div class="saas-badge mb-6 tracking-[0.2em]">Portafolio Confidencial</div>
-        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1]">
-          Casos de estudio <br/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white/60 to-white/20">corporativos.</span>
+      <div class="max-w-4xl">
+        <div class="saas-badge mb-6 tracking-[0.2em] border-[#8B1A2B]/40 text-[#8B1A2B] uppercase font-bold bg-[#8B1A2B]/10">El Valor de lo Digital</div>
+        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-8">
+          Tu presencia en la web es <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white/60 to-white/20">tu activo más importante.</span>
         </h2>
+        <p class="text-xl text-white/50 font-light leading-relaxed max-w-3xl">
+          No somos una agencia de diseño tradicional. Somos una firma de <strong>Ingeniería Full Stack</strong>. Construimos ecosistemas digitales de alto rendimiento diseñados específicamente para otorgar autoridad a tu marca, automatizar tu gestión interna y escalar tus ventas de forma medible.
+        </p>
       </div>
-      <a href="#contacto" class="btn-secondary text-sm px-8 py-4 whitespace-nowrap hover:bg-white/5">
-        Solicitar credenciales de acceso
-      </a>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
-      {projects.map((p, i) => (
-        <article class="bento-card group flex flex-col fade-up overflow-hidden border-white/10 hover:border-[#8B1A2B]/30 hover:shadow-[0_0_50px_rgba(139,26,43,0.15)]" style={`transition-delay: ${i * 0.15}s`}>
-          
-          <!-- Image Corporate Style -->
-          <div class="w-full aspect-[16/9] bg-[#030303] relative border-b border-white/10 overflow-hidden">
-            <img src={p.image} alt={p.title} class="w-full h-full object-cover opacity-50 group-hover:opacity-90 group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--saas-bg)] via-black/40 to-transparent opacity-90 group-hover:opacity-40 transition-opacity duration-500"></div>
-            
-            <div class="absolute top-6 left-6 right-6 flex justify-between items-center z-10">
-              <span class="saas-badge border border-white/20 bg-black/60 backdrop-blur-xl text-[0.65rem] tracking-[0.15em] px-4 py-1.5 rounded-sm shadow-xl">
-                {p.category}
-              </span>
-              <span class={`w-2.5 h-2.5 rounded-full ${p.status === 'published' ? 'bg-[#8B1A2B] shadow-[0_0_15px_rgba(139,26,43,0.8)] animate-pulse' : 'bg-white/30'}`}></span>
-            </div>
+    <!-- Editorial Bento Grid for Business Pitch -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[minmax(300px,auto)]">
+      
+      <!-- Card 1 (Span 2) -->
+      <article class="bento-card md:col-span-2 p-10 md:p-14 flex flex-col justify-between group fade-up relative overflow-hidden bg-gradient-to-br from-black/80 to-black/20 border-white/10 hover:border-[#8B1A2B]/40 transition-colors" style="transition-delay: 0s">
+        <div class="absolute inset-0 bg-[#8B1A2B]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10 max-w-2xl">
+          <div class="w-16 h-16 border border-white/20 flex items-center justify-center mb-8 bg-white/5 backdrop-blur-xl rounded-lg group-hover:scale-110 transition-transform duration-500">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
           </div>
+          <h3 class="text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-[#8B1A2B] transition-colors duration-300">Optimización Orientada a Ventas (CRO)</h3>
+          <p class="text-lg text-white/60 leading-relaxed font-light">
+            Un sitio web que no vende es solo un gasto. Implementamos estrategias avanzadas de conversión, arquitecturas ultra-veloces y SEO técnico para asegurar que cada visita tenga la más alta probabilidad de convertirse en un cliente real para tu empresa.
+          </p>
+        </div>
+      </article>
 
-          <!-- Content -->
-          <div class="p-8 md:p-10 flex items-center justify-between bg-black/40">
-            <div>
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#8B1A2B] transition-colors duration-300 tracking-tight">{p.title}</h3>
-              <p class="text-xs font-semibold text-white/50 uppercase tracking-[0.2em]">{p.status === 'published' ? 'Despliegue Activo' : 'Fase de Arquitectura'}</p>
-            </div>
-            {p.status === 'published' ? (
-              <a href={p.url} class="w-14 h-14 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-[#8B1A2B] hover:text-white hover:border-[#8B1A2B] hover:shadow-[0_0_20px_rgba(139,26,43,0.4)] transition-all duration-300">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            ) : (
-              <span class="w-14 h-14 rounded-lg border border-white/5 flex items-center justify-center text-white/20 bg-black/20">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              </span>
-            )}
+      <!-- Card 2 (Span 1) -->
+      <article class="bento-card p-10 md:p-14 flex flex-col justify-between group fade-up bg-black/40 border-white/10 hover:border-white/30 transition-colors" style="transition-delay: 0.15s">
+        <div>
+          <div class="w-16 h-16 border border-white/20 flex items-center justify-center mb-8 bg-white/5 backdrop-blur-xl rounded-lg group-hover:scale-110 transition-transform duration-500">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
           </div>
+          <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Desarrollo <br/> Full Stack</h3>
+          <p class="text-base text-white/60 leading-relaxed font-light">
+            Dominamos tanto la interfaz visible (Frontend interactivo) como la lógica y bases de datos detrás (Backend). Esto nos permite crear sistemas 100% a medida, seguros y escalables.
+          </p>
+        </div>
+      </article>
 
-        </article>
-      ))}
+      <!-- Card 3 (Span 1) -->
+      <article class="bento-card p-10 md:p-14 flex flex-col justify-between group fade-up bg-black/40 border-white/10 hover:border-white/30 transition-colors" style="transition-delay: 0.3s">
+        <div>
+          <div class="w-16 h-16 border border-[#8B1A2B]/40 text-[#8B1A2B] flex items-center justify-center mb-8 bg-[#8B1A2B]/10 backdrop-blur-xl rounded-lg group-hover:scale-110 transition-transform duration-500">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Autoridad <br/> y Confianza 24/7</h3>
+          <p class="text-base text-white/60 leading-relaxed font-light">
+            Tu portal web es tu vendedor más incansable. Proyecta un nivel corporativo impecable que genera confianza instantánea y diferencia claramente tu marca de la competencia.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card 4 (Span 2) -->
+      <article class="bento-card md:col-span-2 p-10 md:p-14 flex flex-col justify-between group fade-up relative overflow-hidden bg-black/40 border-white/10 hover:border-white/30 transition-colors" style="transition-delay: 0.45s">
+        <div class="relative z-10 flex flex-col md:flex-row gap-10 items-center">
+          <div class="shrink-0 w-24 h-24 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-xl group-hover:rotate-12 transition-transform duration-700">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold text-white mb-4 tracking-tight">Sistemas Internos e Inteligencia Artificial</h3>
+            <p class="text-lg text-white/60 leading-relaxed font-light">
+              Vamos mucho más allá del diseño web. Integramos <strong>Inteligencia Artificial</strong> para atención al cliente automática (vía web y WhatsApp) y desarrollamos <strong>ERPs a medida</strong> que conectan tus ventas online con la logística y el inventario real de tu negocio. La digitalización total es el estándar actual.
+            </p>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>

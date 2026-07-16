@@ -10,11 +10,12 @@
             <div class="h-px bg-[#8B1A2B] w-12"></div>
             <div class="text-[0.65rem] font-bold uppercase tracking-widest text-[#8B1A2B]">Canal Corporativo</div>
           </div>
-          <h2 class="text-4xl font-bold text-white tracking-tight mb-6">
-            Agende una consultoría <br/>con nuestro equipo.
+          <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+            Inicia tu transformación <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#8B1A2B] to-white/60">digital hoy mismo.</span>
           </h2>
           <p class="text-sm text-white/60 mb-12 max-w-sm font-light leading-relaxed">
-            Analizaremos la viabilidad tecnológica de su requerimiento y estructuraremos un plan de acción formal.
+            Solicita una evaluación técnica gratuita con nuestro equipo de ingeniería. Analizaremos tus procesos y diseñaremos una arquitectura orientada a escalar tus ventas.
           </p>
           <div class="flex flex-col gap-6 border-t border-white/10 pt-8">
             <a href="mailto:Vision.code.vs@gmail.com" class="group">
@@ -29,45 +30,55 @@
         </div>
 
         <!-- Formulario -->
-        <div class="bg-black/40 p-8 border border-white/5 rounded-lg">
-          <form id="contactForm" class="flex flex-col gap-5">
+        <div class="bg-black/40 p-8 border border-white/5 rounded-xl backdrop-blur-md shadow-2xl relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#8B1A2B]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          
+          <form id="contactForm" class="flex flex-col gap-6 relative z-10">
             
-            <div class="grid grid-cols-2 gap-4">
-              <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="relative">
                 <label for="empresa" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Empresa o Negocio</label>
-                <input type="text" id="empresa" required class="w-full bg-transparent border-b border-white/20 py-2 text-sm text-white placeholder:text-white/20 focus:border-white outline-none transition-all" placeholder="Ej. Tu Empresa SpA" />
+                <input type="text" id="empresa" required class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-[#8B1A2B] focus:bg-black/60 focus:ring-1 focus:ring-[#8B1A2B] outline-none transition-all shadow-inner" placeholder="Ej. Tu Empresa SpA" />
               </div>
-              <div>
+              <div class="relative">
                 <label for="telefono_empresa" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Teléfono Empresa</label>
-                <input type="tel" id="telefono_empresa" required class="w-full bg-transparent border-b border-white/20 py-2 text-sm text-white placeholder:text-white/20 focus:border-white outline-none transition-all" placeholder="+56 9 XXXX XXXX" />
+                <input type="tel" id="telefono_empresa" required class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-[#8B1A2B] focus:bg-black/60 focus:ring-1 focus:ring-[#8B1A2B] outline-none transition-all shadow-inner" placeholder="+56 9 XXXX XXXX" />
               </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
-              <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="relative">
                 <label for="solicitante" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Nombre Solicitante</label>
-                <input type="text" id="solicitante" required class="w-full bg-transparent border-b border-white/20 py-2 text-sm text-white placeholder:text-white/20 focus:border-white outline-none transition-all" placeholder="Tu nombre" />
+                <input type="text" id="solicitante" required class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-[#8B1A2B] focus:bg-black/60 focus:ring-1 focus:ring-[#8B1A2B] outline-none transition-all shadow-inner" placeholder="Tu nombre" />
               </div>
-              <div>
-                <label for="telefono_solicitante" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Tu Teléfono</label>
-                <input type="tel" id="telefono_solicitante" required class="w-full bg-transparent border-b border-white/20 py-2 text-sm text-white placeholder:text-white/20 focus:border-white outline-none transition-all" placeholder="+56 9 XXXX XXXX" />
+              <div class="relative">
+                <label for="telefono_solicitante" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Tu Teléfono Personal</label>
+                <input type="tel" id="telefono_solicitante" required class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-[#8B1A2B] focus:bg-black/60 focus:ring-1 focus:ring-[#8B1A2B] outline-none transition-all shadow-inner" placeholder="+56 9 XXXX XXXX" />
               </div>
             </div>
 
-            <div>
-              <label for="correo" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Correo Electrónico</label>
-              <input type="email" id="correo" required class="w-full bg-transparent border-b border-white/20 py-2 text-sm text-white placeholder:text-white/20 focus:border-white outline-none transition-all" placeholder="contacto@empresa.com" />
+            <div class="relative">
+              <label for="correo" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Correo Electrónico Corporativo</label>
+              <input type="email" id="correo" required class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-[#8B1A2B] focus:bg-black/60 focus:ring-1 focus:ring-[#8B1A2B] outline-none transition-all shadow-inner" placeholder="contacto@empresa.com" />
             </div>
 
-            <div>
-              <label for="servicio" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Servicio de Interés</label>
-              <select id="servicio" required class="w-full bg-black border-b border-white/20 py-2 text-sm text-white focus:border-white outline-none transition-all">
-                <option value="" disabled selected>Seleccione un servicio</option>
-                <option value="Landing Institucional — $58.000 CLP">Landing Institucional — $58.000 CLP</option>
-                <option value="Portal Corporativo — $80.000 CLP">Portal Corporativo — $80.000 CLP</option>
-                <option value="Plataforma E-Commerce — $150.000 CLP">Plataforma E-Commerce — $150.000 CLP</option>
-                <option value="E-Commerce + ERP — $300.000 CLP">E-Commerce + ERP — $300.000 CLP</option>
+            <div class="relative">
+              <label for="servicio" class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Servicio de Interés Principal</label>
+              <select id="servicio" required class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-white focus:border-[#8B1A2B] focus:bg-black outline-none transition-all appearance-none cursor-pointer">
+                <option value="" disabled selected class="bg-gray-900">Seleccione el ecosistema a integrar</option>
+                <option value="Landing Page Básica" class="bg-gray-900">Landing Page Básica ($60k)</option>
+                <option value="Landing + Portal Corporativo" class="bg-gray-900">Landing + Portal Corporativo ($80k)</option>
+                <option value="E-Commerce Básico" class="bg-gray-900">E-Commerce Básico ($150k)</option>
+                <option value="E-Commerce Intermedio" class="bg-gray-900">E-Commerce Intermedio ($160k)</option>
+                <option value="E-Commerce Profesional" class="bg-gray-900">E-Commerce Profesional ($200k)</option>
+                <option value="Plan Vision Code Pro (ERP)" class="bg-gray-900">Plan Vision Code Pro / ERP ($350k)</option>
+                <option value="Agente IA WhatsApp (Estándar)" class="bg-gray-900">Agente IA WhatsApp (Estándar)</option>
+                <option value="Agente IA WhatsApp (Premium)" class="bg-gray-900">Agente IA WhatsApp (Premium)</option>
+                <option value="Consultoría Personalizada" class="bg-gray-900">Consultoría / Desarrollo a Medida</option>
               </select>
+              <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none mt-6">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/40"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
             </div>
 
             <div id="formMsg" class="text-sm hidden"></div>
