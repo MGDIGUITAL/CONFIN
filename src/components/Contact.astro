@@ -30,41 +30,43 @@
         </div>
 
         <!-- Formulario -->
-        <div class="bg-neutral-50 p-8 border border-neutral-200/80 rounded-xl shadow-lg relative overflow-hidden group">
+        <div class="bg-neutral-50 p-8 border border-neutral-200/80 rounded-none shadow-sm relative overflow-hidden group">
           <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#E8001C]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           
           <form id="contactForm" class="flex flex-col gap-6 relative z-10">
+            <!-- Honeypot anti-spam field -->
+            <input type="text" id="_honeypot" class="hidden" autocomplete="off" tabindex="-1" />
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="relative">
                 <label for="empresa" class="text-[10px] font-bold uppercase tracking-widest text-black/60 block mb-2">Empresa o Negocio</label>
-                <input type="text" id="empresa" required class="w-full bg-white border border-neutral-200 rounded-md px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="Ej. Tu Empresa SpA" />
+                <input type="text" id="empresa" required class="w-full bg-white border border-neutral-200 rounded-none px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="Ej. Tu Empresa SpA" />
               </div>
               <div class="relative">
                 <label for="telefono_empresa" class="text-[10px] font-bold uppercase tracking-widest text-black/60 block mb-2">Teléfono Empresa</label>
-                <input type="tel" id="telefono_empresa" required class="w-full bg-white border border-neutral-200 rounded-md px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="+56 9 XXXX XXXX" />
+                <input type="tel" id="telefono_empresa" required pattern="^(\+?56)?\s?[92-9]\s?[0-9]{8}$|^[+0-9\s-]{9,15}$" title="Ingrese un número de teléfono válido (ej: +56 9 1234 5678)" class="w-full bg-white border border-neutral-200 rounded-none px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="+56 9 XXXX XXXX" />
               </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="relative">
                 <label for="solicitante" class="text-[10px] font-bold uppercase tracking-widest text-black/60 block mb-2">Nombre Solicitante</label>
-                <input type="text" id="solicitante" required class="w-full bg-white border border-neutral-200 rounded-md px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="Tu nombre" />
+                <input type="text" id="solicitante" required class="w-full bg-white border border-neutral-200 rounded-none px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="Tu nombre" />
               </div>
               <div class="relative">
                 <label for="telefono_solicitante" class="text-[10px] font-bold uppercase tracking-widest text-black/60 block mb-2">Tu Teléfono Personal</label>
-                <input type="tel" id="telefono_solicitante" required class="w-full bg-white border border-neutral-200 rounded-md px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="+56 9 XXXX XXXX" />
+                <input type="tel" id="telefono_solicitante" required pattern="^(\+?56)?\s?[92-9]\s?[0-9]{8}$|^[+0-9\s-]{9,15}$" title="Ingrese un número de teléfono válido (ej: +56 9 1234 5678)" class="w-full bg-white border border-neutral-200 rounded-none px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="+56 9 XXXX XXXX" />
               </div>
             </div>
 
             <div class="relative">
               <label for="correo" class="text-[10px] font-bold uppercase tracking-widest text-black/60 block mb-2">Correo Electrónico Corporativo</label>
-              <input type="email" id="correo" required class="w-full bg-white border border-neutral-200 rounded-md px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="contacto@empresa.com" />
+              <input type="email" id="correo" required class="w-full bg-white border border-neutral-200 rounded-none px-4 py-3 text-sm text-black placeholder:text-neutral-400 focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all shadow-sm" placeholder="contacto@empresa.com" />
             </div>
 
             <div class="relative">
               <label for="servicio" class="text-[10px] font-bold uppercase tracking-widest text-black/60 block mb-2">Servicio de Interés Principal</label>
-              <select id="servicio" required class="w-full bg-white border border-neutral-200 rounded-md px-4 py-3 text-sm text-black focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all appearance-none cursor-pointer">
+              <select id="servicio" required class="w-full bg-white border border-neutral-200 rounded-none px-4 py-3 text-sm text-black focus:border-[#E8001C] focus:bg-white focus:ring-2 focus:ring-[#E8001C]/10 outline-none transition-all appearance-none cursor-pointer">
                 <option value="" disabled selected class="bg-white text-neutral-400">Seleccione el ecosistema a integrar</option>
                 <option value="Landing Page Básica" class="bg-white text-black">Landing Page Básica ($60k)</option>
                 <option value="Landing + Portal Corporativo" class="bg-white text-black">Landing + Portal Corporativo ($80k)</option>
@@ -106,6 +108,7 @@
     const telefono_solicitante = (document.getElementById('telefono_solicitante') as HTMLInputElement).value;
     const correo = (document.getElementById('correo') as HTMLInputElement).value;
     const servicio = (document.getElementById('servicio') as HTMLSelectElement).value;
+    const _honeypot = (document.getElementById('_honeypot') as HTMLInputElement).value;
 
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
@@ -114,7 +117,7 @@
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ empresa, telefono_empresa, solicitante, telefono_solicitante, correo, servicio }),
+        body: JSON.stringify({ empresa, telefono_empresa, solicitante, telefono_solicitante, correo, servicio, _honeypot }),
       });
 
       if (res.ok) {
@@ -133,3 +136,10 @@
     }
   });
 </script>
+
+<style>
+  input:user-invalid, select:user-invalid {
+    border-color: #E8001C !important;
+    background-color: rgba(232, 0, 28, 0.02) !important;
+  }
+</style>

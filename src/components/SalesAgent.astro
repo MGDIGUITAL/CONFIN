@@ -2,6 +2,7 @@
 ---
 <div id="vc-agent">
   <button id="vc-bubble" aria-label="Asesor Vision Code">
+    <span id="vc-tooltip">Constanza</span>
     <span id="vc-dot"></span>
     <svg id="ico-chat" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     <svg id="ico-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -65,38 +66,98 @@
 #vc-bubble {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #E8001C, #c0293f);
-  border: none;
+  border-radius: 0;
+  background: linear-gradient(135deg, #111111, #060606);
+  border: 2px solid #E8001C;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 30px rgba(232, 0, 28, 0.35);
   position: relative;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(232, 0, 28, 0.15);
+}
+/* Pulse outer ring */
+#vc-bubble::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 1px solid #E8001C;
+  opacity: 0.3;
+  animation: bubblePulse 2.5s infinite cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+@keyframes bubblePulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.6;
+    border-color: #E8001C;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+    border-color: #ff334b;
+  }
 }
 #vc-bubble:hover {
-  transform: scale(1.08);
-  box-shadow: 0 12px 40px rgba(232, 0, 28, 0.5);
+  transform: translateY(-6px) scale(1.05);
+  background: linear-gradient(135deg, #151515, #0a0a0a);
+  border-color: #ff334b;
+  box-shadow: 0 12px 25px rgba(232, 0, 28, 0.35);
+}
+#vc-bubble:hover::before {
+  inset: -8px;
+  opacity: 0.5;
+  border-color: #ff334b;
+}
+#ico-chat, #ico-x {
+  transition: all 0.3s ease;
+}
+#vc-bubble:hover #ico-chat {
+  transform: scale(1.1) rotate(5deg);
+  stroke: #ff334b;
 }
 #ico-x {
   display: none;
   position: absolute;
 }
+#vc-tooltip {
+  position: absolute;
+  right: 76px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: #0a0a0a;
+  border: 1px solid #E8001C;
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+#vc-bubble:hover #vc-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
 #vc-dot {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 12px;
-  height: 12px;
+  top: 8px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
   background: #25D366;
-  border-radius: 50%;
-  border: 2.5px solid #fff;
+  border-radius: 0;
+  border: 2.5px solid #0a0a0a;
   animation: pd 2s infinite;
 }
 @keyframes pd {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
   50% { box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
 }
 #vc-panel {
@@ -105,12 +166,18 @@
   right: 0;
   width: 360px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
+  border: 2px solid #E8001C;
+  border-radius: 0;
   overflow: hidden;
   display: none;
   flex-direction: column;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(232, 0, 28, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+@media (max-width: 400px) {
+  #vc-panel {
+    width: calc(100vw - 48px);
+    right: -12px;
+  }
 }
 #vc-panel.open {
   display: flex;
@@ -131,8 +198,8 @@
 #vc-avatar {
   width: 38px;
   height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #E8001C, #c0293f);
+  border-radius: 0;
+  background: #E8001C;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,7 +208,7 @@
   color: #ffffff !important;
   flex-shrink: 0;
   letter-spacing: .05em;
-  box-shadow: 0 2px 10px rgba(232, 0, 28, 0.2);
+  box-shadow: 0 2px 6px rgba(232, 0, 28, 0.15);
 }
 #vc-hinfo {
   flex: 1;
@@ -164,7 +231,7 @@
   width: 6px;
   height: 6px;
   background: #25D366;
-  border-radius: 50%;
+  border-radius: 0;
   display: inline-block;
 }
 #vc-close {
@@ -195,8 +262,8 @@
   font-size: 11px;
   font-weight: 600;
   padding: 6px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   background: #ffffff;
   color: #333333 !important;
   cursor: pointer;
@@ -234,7 +301,7 @@
 }
 #vc-msgs::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  border-radius: 0;
 }
 .msg {
   max-width: 85%;
@@ -246,18 +313,18 @@
 }
 .bot {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   color: #1f1f1f !important;
   align-self: flex-start;
-  border-radius: 4px 16px 16px 16px;
+  border-radius: 0;
 }
 .usr {
-  background: linear-gradient(135deg, #E8001C, #c0293f);
+  background: #E8001C;
   color: #ffffff !important;
   align-self: flex-end;
   font-weight: 500;
-  border-radius: 16px 4px 16px 16px;
-  box-shadow: 0 4px 12px rgba(232, 0, 28, 0.15);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(232, 0, 28, 0.1);
 }
 .tdots {
   color: #888;
@@ -278,7 +345,7 @@
   width: 6px;
   height: 6px;
   background: #888;
-  border-radius: 50%;
+  border-radius: 0;
   animation: bd 1.2s infinite;
 }
 .dots-wrap span:nth-child(2) { animation-delay: .2s; }
@@ -296,7 +363,7 @@
   padding: 12px 18px;
   background: #25D366;
   color: #ffffff !important;
-  border-radius: 12px;
+  border-radius: 0;
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
@@ -308,10 +375,10 @@
   transform: translateY(-1px);
 }
 .scard {
-  background: linear-gradient(135deg, rgba(232, 0, 28, 0.02), #ffffff);
+  background: #ffffff;
   border: 1px solid rgba(232, 0, 28, 0.15);
   border-left: 4px solid #E8001C;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 14px 16px;
   font-size: 12.5px;
   color: #444444 !important;
@@ -339,7 +406,7 @@
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.12);
   color: #111111 !important;
-  border-radius: 10px;
+  border-radius: 0;
   font-family: inherit;
   box-sizing: border-box;
   outline: none;
@@ -357,7 +424,7 @@
   background: #25D366;
   color: #ffffff !important;
   border: none;
-  border-radius: 10px;
+  border-radius: 0;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -382,7 +449,7 @@
   background: #f5f5f5;
   border: 1px solid rgba(0, 0, 0, 0.04);
   color: #111111 !important;
-  border-radius: 12px;
+  border-radius: 0;
   font-family: inherit;
   outline: none;
   transition: all 0.2s ease;
@@ -400,7 +467,7 @@
   height: 40px;
   background: #E8001C;
   border: none;
-  border-radius: 12px;
+  border-radius: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -504,6 +571,8 @@ function addWABtn(text, waText){
 
 function delay(ms){ return new Promise(r => setTimeout(r, ms)); }
 
+let history = [];
+
 async function botReply(text, action){
   const t = document.createElement('div');
   t.className = 'msg tdots';
@@ -522,21 +591,66 @@ async function botReply(text, action){
 async function handle(q){
   if(busy) return;
   busy = true;
-  const match = detect(q);
-  if(match){
-    await botReply(match.reply, match.action);
-  } else {
-    await botReply(KB.default);
+  history.push({ role: 'user', content: q });
+
+  // Show typing dots
+  const t = document.createElement('div');
+  t.className = 'msg tdots';
+  t.innerHTML = '<div class="dots-wrap"><span></span><span></span><span></span></div>';
+  msgs.appendChild(t); scroll();
+
+  try {
+    const res = await fetch('/api/constanza', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: history })
+    });
+
+    t.remove();
+
+    if (res.ok) {
+      const data = await res.json();
+      const reply = data.reply;
+      addMsg(reply, 'bot');
+      history.push({ role: 'assistant', content: reply });
+
+      // Automatically show lead form if user is interested in quoting/purchasing
+      const lowerReply = reply.toLowerCase();
+      const lowerQ = q.toLowerCase();
+      if (lowerQ.includes('cotizar') || lowerQ.includes('contratar') || lowerQ.includes('comprar') || lowerReply.includes('proporcione') || lowerReply.includes('datos')) {
+        if (!leadShown) {
+          leadShown = true;
+          lead.style.display = 'flex';
+        }
+      }
+      busy = false;
+    } else {
+      throw new Error('API Error');
+    }
+  } catch (err) {
+    // Fallback to static Knowledge Base
+    t.remove();
+    const match = detect(q);
+    const reply = match ? match.reply : KB.default;
+    const action = match ? match.action : null;
+
+    addMsg(reply, 'bot');
+    history.push({ role: 'assistant', content: reply });
+
+    if(action === 'lead' && !leadShown){
+      leadShown = true;
+      lead.style.display = 'flex';
+    }
+    busy = false;
   }
 }
 
 // Chips
 document.querySelectorAll('.chip').forEach(c => {
   c.addEventListener('click', () => {
-    const q = c.dataset.q;
     const txt = c.querySelector('span').textContent.trim();
     addMsg(txt, 'usr');
-    handle(q);
+    handle(txt);
   });
 });
 
@@ -574,7 +688,9 @@ bubble.addEventListener('click', () => {
   document.getElementById('ico-x').style.display = open ? 'block' : 'none';
   if(open && !started){
     started = true; busy = true;
-    botReply('Estimado/a cliente, bienvenido a la mesa de asesoría digital de Vision Code.\n\nEstamos aquí para orientar el desarrollo tecnológico de su negocio hacia la escalabilidad de sus operaciones. ¿Qué solución técnica desea evaluar hoy?');
+    const welcome = 'Estimado/a cliente, bienvenido a la mesa de asesoría digital de Vision Code.\n\nEstamos aquí para orientar el desarrollo tecnológico de su negocio hacia la escalabilidad de sus operaciones. ¿Qué solución técnica desea evaluar hoy?';
+    history.push({ role: 'assistant', content: welcome });
+    botReply(welcome);
   }
 });
 

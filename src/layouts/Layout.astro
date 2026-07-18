@@ -3,12 +3,17 @@ import SalesAgent from '../components/SalesAgent.astro';
 export interface Props {
   title?: string;
   description?: string;
+  preloadHero?: boolean;
+  url?: string;
 }
 
 const { 
   title = "Vision Code — Agencia de Marketing Digital",
-  description = "Soluciones tecnológicas corporativas, sistemas de gestión y plataformas e-commerce de alto rendimiento."
+  description = "Soluciones tecnológicas corporativas, sistemas de gestión y plataformas e-commerce de alto rendimiento.",
+  preloadHero = false,
+  url = "https://vision-code.cl"
 } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, url).href;
 ---
 
 <!DOCTYPE html>
@@ -18,11 +23,33 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="author" content="Vision Code" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${url}/images/logo-negro.png`} />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="Vision Code" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${url}/images/logo-negro.png`} />
     <meta name="theme-color" content="#E8001C" />
     <link rel="icon" type="image/png" href="/images/logo-negro.png" />
+    {preloadHero && (
+      <>
+        <!-- Preload Hero Background Carousel Images to prevent black/blank flash on transition -->
+        <link rel="preload" href="/images/hero-bg-1.jpeg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/hero-bg-2.jpeg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/hero-bg-3.jpeg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/hero-bg-4.jpeg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/hero-bg-5.jpeg" as="image" type="image/jpeg" />
+      </>
+    )}
     <title>{title}</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,16 +125,16 @@ const {
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
-        padding: 0.2rem 0.65rem;
-        background: rgba(232, 0, 28, 0.07);
-        border: 1px solid rgba(232, 0, 28, 0.28);
+        padding: 0;
+        background: transparent;
+        border: none;
         border-radius: 0;
-        font-size: 0.6rem;
+        font-size: 0.65rem;
         font-weight: 800;
         font-family: 'Montserrat', sans-serif;
         color: var(--saas-brand);
         text-transform: uppercase;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.25em;
       }
 
       /* ── Botón rojo principal ── */
@@ -205,6 +232,12 @@ const {
       }
       .fade-up.in-view { opacity: 1; transform: translateY(0); }
 
+      /* ── Accessibility Focus Ring ── */
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+        outline: 2px solid var(--saas-brand);
+        outline-offset: 4px;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after {
           animation-duration: 0.01ms !important;
@@ -216,6 +249,9 @@ const {
     </style>
   </head>
   <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[99999] focus:bg-[#E8001C] focus:text-white focus:px-4 focus:py-2">
+      Saltar al contenido principal
+    </a>
     <slot />
     
     <script>
@@ -229,6 +265,41 @@ const {
 
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
+    <!-- Floating Action Buttons (WhatsApp & Instagram) -->
+    <div class="fixed bottom-6 left-6 z-[9999] flex flex-col gap-3">
+      <!-- WhatsApp -->
+      <a 
+        href="https://api.whatsapp.com/send?phone=56929645522" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="w-12 h-12 bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 group relative"
+        aria-label="Contactar por WhatsApp"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.588 1.977 14.131.953 11.527.953c-5.439 0-9.859 4.373-9.864 9.803-.002 1.83.491 3.62 1.424 5.2l-.931 3.398 3.49-.917zm12.338-7.397c-.272-.136-1.61-.794-1.86-.885-.25-.091-.432-.136-.613.136-.182.271-.703.885-.862 1.066-.158.181-.317.204-.589.068-.272-.136-1.15-.424-2.19-1.352-.809-.721-1.355-1.613-1.514-1.884-.158-.271-.017-.417.119-.553.122-.122.272-.317.408-.475.136-.158.181-.271.272-.452.09-.181.045-.339-.022-.475-.068-.136-.613-1.478-.839-2.02-.22-.53-.442-.458-.607-.466-.157-.008-.339-.008-.521-.008-.181 0-.475.068-.724.339-.249.271-.95 1.04-1.04 2.533s1.085 2.937 1.233 3.14c.149.203 2.136 3.262 5.176 4.57.723.311 1.288.497 1.728.637.726.23 1.387.197 1.91.12.583-.086 1.79-.73 2.046-1.434.256-.704.256-1.31.179-1.434-.076-.124-.277-.197-.549-.333z" />
+        </svg>
+        <span class="absolute left-14 bg-black/90 text-white text-[0.65rem] font-bold tracking-wider uppercase px-2.5 py-1.5 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10">
+          WhatsApp
+        </span>
+      </a>
+
+      <!-- Instagram -->
+      <a 
+        href="https://www.instagram.com/vision_code_vc/?hl=es" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="w-12 h-12 bg-[#E1306C] hover:bg-[#C13584] text-white flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 group relative"
+        aria-label="Seguir en Instagram"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+        </svg>
+        <span class="absolute left-14 bg-black/90 text-white text-[0.65rem] font-bold tracking-wider uppercase px-2.5 py-1.5 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10">
+          Instagram
+        </span>
+      </a>
+    </div>
+
     <SalesAgent />
   </body>
 </html>

@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import Metrics from '../components/Metrics.astro';
 import Services from '../components/Services.astro';
 import Projects from '../components/Projects.astro';
 import Clients from '../components/Clients.astro';
@@ -11,11 +10,10 @@ import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
+<Layout preloadHero={true}>
   <Navbar />
-  <main>
+  <main id="main-content">
     <Hero />
-    <Metrics />
     <Services />
     <Projects />
     <Clients />

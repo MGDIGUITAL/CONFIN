@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         brand: {
-          // Paleta Bull — Negro + Rojo
+          // Paleta Vision Code — Negro + Rojo
           red: '#E8001C',
           'red-light': '#FF1A2E',
           'red-dark': '#B8000E',
