@@ -1,4 +1,7 @@
 {
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "nodeVersion": "20.x",
   "headers": [
     {
       "source": "/(.*)",
