@@ -6,181 +6,199 @@ import Footer from '../../components/Footer.astro';
 export function getStaticPaths() {
   const services = [
     {
-      id: 'ecommerce-profesional',
-      title: 'E-Commerce Profesional',
-      subtitle: 'Profesional (Más de 50 productos)',
-      price: '$211 USD',
+      id: 'factoring-corporativo',
+      title: 'Factoring Corporativo',
+      subtitle: 'Conversión de Cuentas por Cobrar',
+      price: 'A Medida',
       monthly: null,
-      category: 'E-Commerce',
-      description: "Tu tienda online a medida, sin límites de categorías y lista para facturar en piloto automático.",
-      delivery: "Entrega en 14 días",
-      badge: "RECOMENDADO",
+      category: 'Liquidez',
+      description: "Conversión inmediata de cuentas por cobrar (facturas) en flujo de efectivo para tu empresa.",
+      delivery: "Evaluación 24 hrs",
+      badge: "ALTA LIQUIDEZ",
       isRecommended: true,
       features: [
-        'Landing + tienda online',
-        'Hosting + dominio (1 año)',
-        'Diseño de identidad visual & brand assets',
-        'Soporte técnico 30 días',
-        'Carrito de compras',
-        'Mercado Pago / Webpay',
-        'Panel de administración',
-        'Más de 50 productos'
+        'Adelanto de cuentas por cobrar',
+        'Mejora del indicador de liquidez',
+        'Sin endeudamiento bancario adicional',
+        'Evaluación ágil y tasa competitiva',
+        'Asesoría continua de nuestro equipo',
+        'Estructuración confidencial'
       ]
     },
     {
-      id: 'agente-ia-whatsapp-estandar',
-      title: 'Agente IA WhatsApp Estándar',
-      subtitle: 'Plan Estándar',
-      price: '$105 USD',
-      monthly: '$32 USD/mes',
-      category: 'IA',
-      description: "Automatiza tu atención al cliente y responde consultas 24/7 de forma inteligente y fluida.",
-      delivery: "Configuración en 5 días",
-      features: [
-        'Responde automáticamente 24/7',
-        'Entrenado con la información de tu empresa',
-        'Atención más rápida, clientes más satisfechos',
-        'Más ventas, más eficiencia, más resultados',
-        'Insignia verificada y protección contra suplantación',
-        'Hasta 4 dispositivos conectados',
-        'Canal de difusión oficial de tu negocio',
-        'Soporte técnico y monitoreo continuo'
-      ]
-    },
-    {
-      id: 'agente-ia-whatsapp-premium',
-      title: 'Agente IA WhatsApp Premium',
-      subtitle: 'Plan Premium',
-      price: '$105 USD',
-      monthly: '$32 USD/mes',
-      category: 'IA',
-      description: "La solución definitiva con API oficial de WhatsApp Cloud, Meta Verified y multiagente.",
-      delivery: "Configuración en 10 días",
-      badge: "API OFICIAL",
-      features: [
-        'Configuración completa del Agente IA',
-        'Integración con WhatsApp Business API',
-        'Entrenamiento con información de tu empresa',
-        'Automatización de respuestas 24/7',
-        'Pruebas y puesta en marcha',
-        'Soporte técnico continuo',
-        'Ajustes y optimización del agente',
-        'Meta Verified Business Standard',
-        'Protección contra suplantación de identidad',
-        'Hasta 4 dispositivos conectados',
-        'Canal de difusión oficial',
-        'Monitoreo y mantenimiento preventivo'
-      ]
-    },
-    {
-      id: 'landing-portal-corporativo',
-      title: 'Landing + Portal Corporativo',
-      subtitle: 'Portal Corporativo / Institucional',
-      price: '$84 USD',
+      id: 'confirming-proveedores',
+      title: 'Confirming (Gestión de Proveedores)',
+      subtitle: 'Cadena de Pagos & Tesorería',
+      price: 'Línea Corporativa',
       monthly: null,
-      category: 'Web',
-      description: "Sitio web corporativo de alto estándar para posicionar tu marca y captar leads calificados.",
-      delivery: "Entrega en 10 días",
-      badge: "B2B RECOMENDADO",
+      category: 'Liquidez',
+      description: "Optimización de la cadena de pagos y tesorería corporativa fortaleciendo tu relación con proveedores.",
+      delivery: "Estructuración a medida",
       features: [
-        'Landing + 6 páginas internas',
-        'Hosting + dominio (1 año)',
-        'Diseño de Identidad Visual (Logotipo)',
-        'Optimización y tratamiento de activos visuales',
-        'Soporte técnico 30 días',
-        'Diseño responsive',
-        'Blog o sección de noticias',
-        'Google Analytics'
+        'Gestión automatizada de pagos',
+        'Financiamiento anticipado a proveedores',
+        'Fortalecimiento de la cadena de suministro',
+        'Eficiencia en tesorería y flujo de caja',
+        'Acompañamiento ejecutivo especialista'
       ]
     },
     {
-      id: 'plan-vision-code-pro',
-      title: 'Vision Code Pro (Web + ERP)',
-      subtitle: 'Landing + E-Commerce + ERP',
-      price: '$368 USD',
+      id: 'capital-de-trabajo',
+      title: 'Financiamiento de Capital de Trabajo',
+      subtitle: 'Ciclos Operativos & Crecimiento',
+      price: 'Tasa Preferencial',
       monthly: null,
-      category: 'Sistemas',
-      description: "Ecosistema integral con Tienda Online y software ERP de inventario y facturación integrado.",
-      delivery: "Entrega en 21 días",
-      badge: "SISTEMA INTEGRAL",
+      category: 'Liquidez',
+      badge: "PYME & CORP",
+      description: "Inyección de liquidez para ciclos operativos, compra de existencias y planes de crecimiento.",
+      delivery: "Estructuración ágil",
       features: [
-        'Todo lo del Plan E-Commerce:',
-        'Landing + tienda online',
-        'Hosting + dominio (1 año)',
-        'Diseño de identidad visual & brand assets',
-        'Soporte técnico 30 días',
-        'Carrito de compras',
-        'Mercado Pago / Webpay',
-        'Panel de administración',
-        'Más de 50 productos',
-        '---',
-        '+ Sistema ERP / CRM Interno:',
-        'Gestión de inventario y ventas',
-        'Panel de clientes y proveedores',
-        'Reportes y estadísticas',
-        'Roles y permisos de usuarios',
-        'Soporte técnico 60 días',
-        'Capacitación incluida'
+        'Líneas de crédito operacionales',
+        'Plazos flexibles según ciclo de negocio',
+        'Asesoría en estructura de deuda',
+        'Alineado con normas bancarias / CMF',
+        'Requisito: Empresas +2 años SII'
       ]
     },
     {
-      id: 'ecommerce-basico',
-      title: 'E-Commerce Básico',
-      subtitle: 'Básico (Hasta 20 productos)',
-      price: '$158 USD',
+      id: 'leasing-financiero',
+      title: 'Leasing Financiero e Inmobiliario',
+      subtitle: 'Bienes de Capital con Eficiencia Tributaria',
+      price: 'Estructurado',
       monthly: null,
-      category: 'E-Commerce',
-      description: "Tu tienda virtual inicial para comenzar a vender tus productos en internet rápidamente.",
-      delivery: "Entrega en 7 días",
+      category: 'Activos',
+      badge: "EFICIENCIA TRIBUTARIA",
+      isRecommended: true,
+      description: "Arrendamiento con opción de compra para bienes de capital, maquinarias e inmuebles con eficiencia tributaria.",
+      delivery: "Estructuración integral",
       features: [
-        'Landing + tienda online',
-        'Hosting + dominio (1 año)',
-        'Diseño de identidad visual & brand assets',
-        'Soporte técnico 30 días',
-        'Carrito de compras',
-        'Mercado Pago / Webpay',
-        'Panel de administración',
-        'Hasta 20 productos'
+        'Financiamiento de largo plazo',
+        'Beneficios tributarios directos',
+        'Adquisición de maquinaria, flota o inmueble',
+        'Opción de compra al final del período',
+        'Acompañamiento en due diligence'
       ]
     },
     {
-      id: 'ecommerce-intermedio',
-      title: 'E-Commerce Intermedio',
-      subtitle: 'Intermedio (Hasta 40 productos)',
-      price: '$168 USD',
+      id: 'leaseback-retrolit',
+      title: 'Leaseback (Retrolit)',
+      subtitle: 'Monetización de Activos Fijos',
+      price: 'Liquidez de Activos',
       monthly: null,
-      category: 'E-Commerce',
-      description: "Ideal para marcas en crecimiento que necesitan expandir su catálogo y opciones de pago.",
-      delivery: "Entrega en 10 días",
+      category: 'Activos',
+      description: "Monetización de activos fijos propios para obtener liquidez inmediata manteniendo su operatividad.",
+      delivery: "Evaluación patrimonial",
       features: [
-        'Landing + tienda online',
-        'Hosting + dominio (1 año)',
-        'Diseño de identidad visual & brand assets',
-        'Soporte técnico 30 días',
-        'Carrito de compras',
-        'Mercado Pago / Webpay',
-        'Panel de administración',
-        'Hasta 40 productos'
+        'Conversión de activo fijo en liquidez',
+        'Continuidad de uso operativo del bien',
+        'Optimización del balance corporativo',
+        'Plazos extendidos de amortización',
+        'Asesoría legal y patrimonial integral'
       ]
     },
     {
-      id: 'landing-basica',
-      title: 'Landing Page Básica',
-      subtitle: 'Plan Inicial',
-      price: '$63 USD',
+      id: 'creditos-fogain',
+      title: 'Créditos con Garantía FOGAIN',
+      subtitle: 'Respaldo y Garantías Estatales',
+      price: 'Garantía Estatal',
       monthly: null,
-      category: 'Web',
-      description: "Una página de aterrizaje profesional orientada 100% a convertir visitantes en clientes.",
-      delivery: "Entrega en 7 días",
-      badge: "OFERTA PYME",
+      category: 'Garantias',
+      badge: "RESPALDO ESTATAL",
+      description: "Gestión de financiamiento bancario respaldado por fondos estatales FOGAIN para PYMES y corporaciones.",
+      delivery: "Gestión preferente",
       features: [
-        '1 página landing profesional',
-        'Hosting + dominio (1 año)',
-        'Diseño de Identidad Visual (Logotipo)',
-        'Optimización y tratamiento de activos visuales',
-        'Soporte técnico 30 días',
-        'Diseño responsive',
-        'Formulario de contacto'
+        'Respaldo de garantía estatal FOGAIN',
+        'Mejora en condiciones de tasa y plazo',
+        'Acceso para inversiones y capital operacional',
+        'Asesoría en postulación y cumplimiento',
+        'Atención especial para PYMES solventes'
+      ]
+    },
+    {
+      id: 'fianzas-garantias',
+      title: 'Fianzas y Certificados de Garantía',
+      subtitle: 'Licitaciones y Contratos',
+      price: 'Emisión Rápida',
+      monthly: null,
+      category: 'Garantias',
+      description: "Emisión de instrumentos para licitaciones públicas y privadas, contratos y fiel cumplimiento.",
+      delivery: "Emisión ágil",
+      features: [
+        'Certificados para licitaciones y contratos',
+        'Garantía de seriedad de oferta y cumplimiento',
+        'Sin inmovilizar líneas de crédito bancario',
+        'Aceptación en entidades públicas y privadas',
+        'Respaldo y solvencia institucional'
+      ]
+    },
+    {
+      id: 'seguros-corporativos',
+      title: 'Seguros Corporativos',
+      subtitle: 'Blindaje Patrimonial & Operativo',
+      price: 'Cobertura Integral',
+      monthly: null,
+      category: 'Garantias',
+      description: "Soluciones de cobertura para blindaje patrimonial, responsibility civil y continuidad operativa.",
+      delivery: "Diagnóstico 48 hrs",
+      features: [
+        'Blindaje de activos y patrimonio',
+        'Cobertura por interrupción operacional',
+        'Seguros de responsabilidad civil y técnicos',
+        'Asesoría en gestión integral de riesgo',
+        'Acompañamiento ante siniestros'
+      ]
+    },
+    {
+      id: 'comercio-exterior-comex',
+      title: 'Comercio Exterior (Comex)',
+      subtitle: 'Importaciones & Exportaciones',
+      price: 'Financiamiento Comex',
+      monthly: null,
+      category: 'Especializado',
+      badge: "IMPORT & EXPORT",
+      description: "Estructuración financiera para operaciones de importación y exportación, cartas de crédito y cobranzas.",
+      delivery: "Red Internacional",
+      features: [
+        'Cartas de crédito y cobranzas extranjeras',
+        'Financiamiento de importaciones/exportaciones',
+        'Cobertura de riesgo cambiario',
+        'Estructuración ágil de comercio internacional',
+        'Red de bancos corresponsales'
+      ]
+    },
+    {
+      id: 'bono-de-riego-cnr',
+      title: 'Bono de Riego (Ley CNR)',
+      subtitle: 'Eficiencia Hídrica con Beneficio Fiscal',
+      price: 'Ley CNR',
+      monthly: null,
+      category: 'Especializado',
+      badge: "BENEFICIO FISCAL",
+      description: "Financiamiento especializado para proyectos de eficiencia hídrica y agrícolas acogidos a beneficio fiscal.",
+      delivery: "Gestión Ley CNR",
+      features: [
+        'Financiamiento puente para Ley CNR',
+        'Proyectos agrícolas y de eficiencia hídrica',
+        'Aprovechamiento del subsidio y bonificación',
+        'Asesoría agroeconómica e ingeniería de riego',
+        'Evaluación integral del proyecto'
+      ]
+    },
+    {
+      id: 'financiamiento-habitacional',
+      title: 'Financiamiento Habitacional (SERVIU)',
+      subtitle: 'Subsidios & Proyectos Hipotecarios',
+      price: 'SERVIU & Hipotecario',
+      monthly: null,
+      category: 'Especializado',
+      description: "Asesoría en la gestión de subsidios y productos hipotecarios específicos habitacionales y de proyectos.",
+      delivery: "Asesoría Especializada",
+      features: [
+        'Gestión de subsidios habitacionales SERVIU',
+        'Estructuración de créditos hipotecarios',
+        'Evaluación para personas y desarrolladores',
+        'Asesoría patrimonial y legal',
+        'Requisito: Renta líquida mín. $900.000'
       ]
     }
   ];
@@ -194,11 +212,11 @@ export function getStaticPaths() {
 const { service } = Astro.props;
 ---
 
-<Layout title={`${service.title} — ${service.subtitle} | Vision Code`} description={`${service.title} ${service.subtitle}. ${service.price}${service.monthly ? ` + ${service.monthly}` : ''}. Soluciones digitales profesionales de Vision Code.`}>
+<Layout title={`${service.title} — ${service.subtitle} | CONFIN CAPITAL`} description={`${service.title} ${service.subtitle}. ${service.price}${service.monthly ? ` + ${service.monthly}` : ''}. Soluciones en finanzas corporativas y capital de CONFIN CAPITAL.`}>
   <Navbar />
   
   <div class="fixed inset-0 z-0 opacity-20 pointer-events-none">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#E8001C]/10 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1B3C9C]/10 to-transparent"></div>
   </div>
 
   <main class="min-h-screen pt-32 pb-20 relative z-10 flex items-center">
@@ -216,13 +234,13 @@ const { service } = Astro.props;
         <!-- Left: Redesigned Card -->
         <div class="fade-up flex justify-center w-full">
           <div 
-            class={`w-full max-w-[400px] relative flex flex-col justify-between p-8 min-h-[580px] bg-[#0a0a0a] text-white border ${service.isRecommended ? 'border-[#E8001C] shadow-[0_0_25px_rgba(232,0,28,0.15)] scale-[1.02] md:scale-[1.03] z-10' : 'border-white/10'} hover:border-[#E8001C]/50 hover:shadow-[0_0_25px_rgba(232,0,28,0.08)]`}
+            class={`w-full max-w-[400px] relative flex flex-col justify-between p-8 min-h-[580px] bg-[#0a0a0a] text-white border ${service.isRecommended ? 'border-[#1B3C9C] shadow-[0_0_25px_rgba(232,0,28,0.15)] scale-[1.02] md:scale-[1.03] z-10' : 'border-white/10'} hover:border-[#1B3C9C]/50 hover:shadow-[0_0_25px_rgba(232,0,28,0.08)]`}
           >
             <div>
               {/* Badge/Tag */}
               <div class="min-h-[28px] mb-4">
                 {service.badge && (
-                  <span class={`inline-block text-[0.62rem] font-black tracking-widest uppercase px-3 py-1 ${service.isRecommended ? 'bg-[#E8001C] text-white font-bold' : 'bg-white/10 text-white/80'}`}>
+                  <span class={`inline-block text-[0.62rem] font-black tracking-widest uppercase px-3 py-1 ${service.isRecommended ? 'bg-[#1B3C9C] text-white font-bold' : 'bg-white/10 text-white/80'}`}>
                     {service.badge}
                   </span>
                 )}
@@ -239,7 +257,7 @@ const { service } = Astro.props;
                   {service.monthly && <span class="text-xs font-bold text-white/40 uppercase tracking-wider">{service.monthly}</span>}
                 </div>
                 {service.delivery && (
-                  <div class="text-[0.65rem] text-[#E8001C] font-semibold tracking-wider uppercase mt-2">
+                  <div class="text-[0.65rem] text-[#1B3C9C] font-semibold tracking-wider uppercase mt-2">
                     {service.delivery}
                   </div>
                 )}
@@ -251,7 +269,7 @@ const { service } = Astro.props;
                   if (feature === '---' || feature.startsWith('+') || feature.startsWith('Todo lo del')) return null;
                   return (
                     <li class="flex items-start gap-2.5 text-xs text-white/70 font-light">
-                      <svg class="shrink-0 w-3.5 h-3.5 mt-0.5 text-[#E8001C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <svg class="shrink-0 w-3.5 h-3.5 mt-0.5 text-[#1B3C9C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <span>{feature}</span>
@@ -264,10 +282,10 @@ const { service } = Astro.props;
             {/* CTA Button */}
             <div class="space-y-2 mt-auto">
               <a 
-                href={`https://api.whatsapp.com/send?phone=56929645522&text=Hola,%20me%20gustaría%20cotizar%20el%20servicio:%20${encodeURIComponent(service.title)}`} 
+                href={`https://api.whatsapp.com/send?phone=56920836337&text=Hola,%20me%20gustaría%20cotizar%20el%20servicio:%20${encodeURIComponent(service.title)}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                class={`w-full py-3.5 text-center text-xs font-bold uppercase tracking-wider block transition-all ${service.isRecommended ? 'bg-[#E8001C] text-white hover:bg-[#b8000e] shadow-[0_0_15px_rgba(232,0,28,0.4)]' : 'bg-transparent text-white border border-white/20 hover:border-[#E8001C] hover:bg-[#E8001C]/10'}`}
+                class={`w-full py-3.5 text-center text-xs font-bold uppercase tracking-wider block transition-all ${service.isRecommended ? 'bg-[#1B3C9C] text-white hover:bg-[#122878] shadow-[0_0_15px_rgba(232,0,28,0.4)]' : 'bg-transparent text-white border border-white/20 hover:border-[#1B3C9C] hover:bg-[#1B3C9C]/10'}`}
               >
                 Cotizar Ahora ↗
               </a>
@@ -287,7 +305,7 @@ const { service } = Astro.props;
 
           <div class="mb-10 p-6 border border-black/10 rounded-none bg-black/5 backdrop-blur-md">
             <div class="text-3xl font-mono text-black mb-1">{service.price}</div>
-            {service.monthly && <div class="text-sm font-bold text-[#E8001C] uppercase tracking-widest">+ {service.monthly}</div>}
+            {service.monthly && <div class="text-sm font-bold text-[#1B3C9C] uppercase tracking-widest">+ {service.monthly}</div>}
             {!service.monthly && <div class="text-sm font-bold text-black/40 uppercase tracking-widest">Pago Único</div>}
           </div>
 
@@ -295,18 +313,18 @@ const { service } = Astro.props;
           <ul class="space-y-4 mb-10">
             {service.features.map(feature => {
               if (feature === '---' || feature.startsWith('+') || feature.startsWith('Todo lo del')) {
-                return <li class="text-[#E8001C] font-bold text-sm uppercase tracking-widest mt-6 mb-2 border-b border-black/10 pb-2">{feature.replace('---', '')}</li>
+                return <li class="text-[#1B3C9C] font-bold text-sm uppercase tracking-widest mt-6 mb-2 border-b border-black/10 pb-2">{feature.replace('---', '')}</li>
               }
               return (
                 <li class="flex items-start gap-3 text-black/75 font-light">
-                  <svg class="shrink-0 mt-1 text-[#E8001C]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <svg class="shrink-0 mt-1 text-[#1B3C9C]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   {feature}
                 </li>
               )
             })}
           </ul>
 
-          <a href={`https://api.whatsapp.com/send?phone=56929645522&text=Hola,%20me%20interesa%20adquirir%20el%20servicio:%20${encodeURIComponent(service.title + ' - ' + service.subtitle)}`} target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center py-5 text-sm">
+          <a href={`https://api.whatsapp.com/send?phone=56920836337&text=Hola,%20me%20interesa%20adquirir%20el%20servicio:%20${encodeURIComponent(service.title + ' - ' + service.subtitle)}`} target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center py-5 text-sm">
             Contratar Servicio
           </a>
         </div>

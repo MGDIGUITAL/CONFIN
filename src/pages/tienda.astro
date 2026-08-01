@@ -5,147 +5,193 @@ import Footer from '../components/Footer.astro';
 
 const storeItems = [
   {
-    id: "ecommerce-profesional",
-    title: "E-Commerce Profesional",
-    price: 211,
-    priceFormatted: "$211 USD",
-    category: "E-Commerce",
-    description: "Tu tienda online a medida, sin límites de categorías y lista para facturar en piloto automático.",
-    delivery: "Entrega en 14 días",
-    badge: "RECOMENDADO",
+    id: "factoring-corporativo",
+    title: "Factoring Corporativo",
+    price: 1,
+    priceFormatted: "A Medida",
+    category: "Liquidez",
+    description: "Conversión inmediata de cuentas por cobrar (facturas) en flujo de efectivo para tu empresa.",
+    delivery: "Evaluación 24 hrs",
+    badge: "ALTA LIQUIDEZ",
     isRecommended: true,
     features: [
-      "Landing + Tienda Online completa",
-      "Catálogo de más de 50 productos",
-      "Integración de Webpay y Mercado Pago",
-      "Hosting + Dominio (.cl o .com) por 1 año",
-      "Diseño de identidad visual & brand assets",
-      "Panel de administración autogestionable",
-      "Soporte técnico por 30 días"
+      "Adelanto de cuentas por cobrar",
+      "Mejora del indicador de liquidez",
+      "Sin endeudamiento bancario adicional",
+      "Evaluación ágil y tasa competitiva",
+      "Asesoría continua de nuestro equipo"
     ]
   },
   {
-    id: "agente-ia-whatsapp-estandar",
-    title: "Agente IA WhatsApp Estándar",
-    price: 105,
-    priceFormatted: "$105 USD",
-    monthly: "+ $32/mes",
-    category: "IA",
-    description: "Automatiza tu atención al cliente y responde consultas 24/7 de forma inteligente y fluida.",
-    delivery: "Configuración en 5 días",
+    id: "confirming-proveedores",
+    title: "Confirming (Gestión de Proveedores)",
+    price: 2,
+    priceFormatted: "Línea Corporativa",
+    category: "Liquidez",
+    description: "Optimización de la cadena de pagos y tesorería corporativa fortaleciendo tu relación con proveedores.",
+    delivery: "Estructuración a medida",
     features: [
-      "Responde automáticamente 24/7",
-      "Entrenado con la información de tu empresa",
-      "Atención más rápida, clientes felices",
-      "Hasta 4 dispositivos conectados",
-      "Soporte técnico y monitoreo continuo"
+      "Gestión automatizada de pagos",
+      "Financiamiento anticipado a proveedores",
+      "Fortalecimiento de la cadena de suministro",
+      "Eficiencia en tesorería y flujo de caja",
+      "Acompañamiento ejecutivo especialista"
     ]
   },
   {
-    id: "agente-ia-whatsapp-premium",
-    title: "Agente IA WhatsApp Premium",
-    price: 105,
-    priceFormatted: "$105 USD",
-    monthly: "+ $32/mes",
-    category: "IA",
-    description: "La solución definitiva con API oficial de WhatsApp Cloud, Meta Verified y multiagente.",
-    delivery: "Configuración en 10 días",
-    badge: "API OFICIAL",
+    id: "capital-de-trabajo",
+    title: "Financiamiento de Capital de Trabajo",
+    price: 3,
+    priceFormatted: "Tasa Preferencial",
+    category: "Liquidez",
+    badge: "PYME & CORP",
+    description: "Inyección de liquidez para ciclos operativos, compra de existencias y planes de crecimiento.",
+    delivery: "Estructuración ágil",
     features: [
-      "Integración oficial con WhatsApp Cloud API",
-      "Meta Verified Business Standard",
-      "Respuestas inteligentes ilimitadas 24/7",
-      "Multidispositivo y multiagent certificado",
-      "Protección contra suplantación y baneo"
+      "Líneas de crédito operacionales",
+      "Plazos flexibles según ciclo de negocio",
+      "Asesoría en estructura de deuda",
+      "Alineado con normas bancarias / CMF",
+      "Requisito: Empresas +2 años SII"
     ]
   },
   {
-    id: "landing-portal-corporativo",
-    title: "Landing + Portal Corporativo",
-    price: 84,
-    priceFormatted: "$84 USD",
-    category: "Web",
-    description: "Sitio web corporativo de alto estándar para posicionar tu marca y captar leads calificados.",
-    delivery: "Entrega en 10 días",
-    badge: "B2B RECOMENDADO",
+    id: "leasing-financiero",
+    title: "Leasing Financiero e Inmobiliario",
+    price: 4,
+    priceFormatted: "Estructurado",
+    category: "Activos",
+    badge: "EFICIENCIA TRIBUTARIA",
+    isRecommended: true,
+    description: "Arrendamiento con opción de compra para bienes de capital, maquinarias e inmuebles con eficiencia tributaria.",
+    delivery: "Estructuración integral",
     features: [
-      "Landing + 6 páginas internas",
-      "Diseño de Identidad Visual (Logotipo)",
-      "Blog o sección de noticias integrada",
-      "Optimización SEO y Google Analytics",
-      "Diseño responsive premium y soporte"
+      "Financiamiento de largo plazo",
+      "Beneficios tributarios directos",
+      "Adquisición de maquinaria, flota o inmueble",
+      "Opción de compra al final del período",
+      "Acompañamiento en due diligence"
     ]
   },
   {
-    id: "plan-vision-code-pro",
-    title: "Vision Code Pro (Web + ERP)",
-    price: 368,
-    priceFormatted: "$368 USD",
-    category: "Sistemas",
-    description: "Ecosistema integral con Tienda Online y software ERP de inventario y facturación integrado.",
-    delivery: "Entrega en 21 días",
-    badge: "SISTEMA INTEGRAL",
+    id: "leaseback-retrolit",
+    title: "Leaseback (Retrolit)",
+    price: 5,
+    priceFormatted: "Liquidez de Activos",
+    category: "Activos",
+    description: "Monetización de activos fijos propios para obtener liquidez inmediata manteniendo su operatividad.",
+    delivery: "Evaluación patrimonial",
     features: [
-      "Todo lo del Plan E-Commerce Profesional",
-      "Sistema ERP / CRM interno a medida",
-      "Gestión de inventario, ventas y compras",
-      "Panel para clientes y proveedores",
-      "Capacitación completa y soporte de 60 días"
+      "Conversión de activo fijo en liquidez",
+      "Continuidad de uso operativo del bien",
+      "Optimización del balance corporativo",
+      "Plazos extendidos de amortización",
+      "Asesoría legal y patrimonial integral"
     ]
   },
   {
-    id: "ecommerce-basico",
-    title: "E-Commerce Básico",
-    price: 158,
-    priceFormatted: "$158 USD",
-    category: "E-Commerce",
-    description: "Tu tienda virtual inicial para comenzar a vender tus productos en internet rápidamente.",
-    delivery: "Entrega en 7 días",
+    id: "creditos-fogain",
+    title: "Créditos con Garantía FOGAIN",
+    price: 6,
+    priceFormatted: "Garantía Estatal",
+    category: "Garantias",
+    badge: "RESPALDO ESTATAL",
+    description: "Gestión de financiamiento bancario respaldado por fondos estatales FOGAIN para PYMES y corporaciones.",
+    delivery: "Gestión preferente",
     features: [
-      "Landing + Tienda online básica",
-      "Hasta 20 productos en catálogo",
-      "Carrito de compras integrado",
-      "Pasarela de pago Mercado Pago",
-      "Hosting + Dominio por 1 año"
+      "Respaldo de garantía estatal FOGAIN",
+      "Mejora en condiciones de tasa y plazo",
+      "Acceso para inversiones y capital operacional",
+      "Asesoría en postulación y cumplimiento",
+      "Atención especial para PYMES solventes"
     ]
   },
   {
-    id: "ecommerce-intermedio",
-    title: "E-Commerce Intermedio",
-    price: 168,
-    priceFormatted: "$168 USD",
-    category: "E-Commerce",
-    description: "Ideal para marcas en crecimiento que necesitan expandir su catálogo y opciones de pago.",
-    delivery: "Entrega en 10 días",
+    id: "fianzas-garantias",
+    title: "Fianzas y Certificados de Garantía",
+    price: 7,
+    priceFormatted: "Emisión Rápida",
+    category: "Garantias",
+    description: "Emisión de instrumentos para licitaciones públicas y privadas, contratos y fiel cumplimiento.",
+    delivery: "Emisión ágil",
     features: [
-      "Landing + Tienda online completa",
-      "Hasta 40 productos en catálogo",
-      "Carrito de compras avanzado",
-      "Webpay Plus y Mercado Pago integrado",
-      "Hosting + Dominio por 1 año"
+      "Certificados para licitaciones y contratos",
+      "Garantía de seriedad de oferta y cumplimiento",
+      "Sin inmovilizar líneas de crédito bancario",
+      "Aceptación en entidades públicas y privadas",
+      "Respaldo y solvencia institucional"
     ]
   },
   {
-    id: "landing-basica",
-    title: "Landing Page Básica",
-    price: 63,
-    priceFormatted: "$63 USD",
-    category: "Web",
-    description: "Una página de aterrizaje profesional orientada 100% a convertir visitantes en clientes.",
-    delivery: "Entrega en 7 días",
-    badge: "OFERTA PYME",
+    id: "seguros-corporativos",
+    title: "Seguros Corporativos",
+    price: 8,
+    priceFormatted: "Cobertura Integral",
+    category: "Garantias",
+    description: "Soluciones de cobertura para blindaje patrimonial, responsabilidad civil y continuidad operativa.",
+    delivery: "Diagnóstico 48 hrs",
     features: [
-      "1 página landing profesional",
-      "Formulario de contacto integrado",
-      "Diseño responsive adaptable",
-      "Logotipo oficial básico",
-      "Hosting + Dominio por 1 año"
+      "Blindaje de activos y patrimonio",
+      "Cobertura por interrupción operacional",
+      "Seguros de responsabilidad civil y técnicos",
+      "Asesoría en gestión integral de riesgo",
+      "Acompañamiento ante siniestros"
+    ]
+  },
+  {
+    id: "comercio-exterior-comex",
+    title: "Comercio Exterior (Comex)",
+    price: 9,
+    priceFormatted: "Financiamiento Comex",
+    category: "Especializado",
+    badge: "IMPORT & EXPORT",
+    description: "Estructuración financiera para operaciones de importación y exportación, cartas de crédito y cobranzas.",
+    delivery: "Red Internacional",
+    features: [
+      "Cartas de crédito y cobranzas extranjeras",
+      "Financiamiento de importaciones/exportaciones",
+      "Cobertura de riesgo cambiario",
+      "Estructuración ágil de comercio internacional",
+      "Red de bancos corresponsales"
+    ]
+  },
+  {
+    id: "bono-de-riego-cnr",
+    title: "Bono de Riego (Ley CNR)",
+    price: 10,
+    priceFormatted: "Ley CNR",
+    category: "Especializado",
+    badge: "BENEFICIO FISCAL",
+    description: "Financiamiento especializado para proyectos de eficiencia hídrica y agrícolas acogidos a beneficio fiscal.",
+    delivery: "Gestión Ley CNR",
+    features: [
+      "Financiamiento puente para Ley CNR",
+      "Proyectos agrícolas y de eficiencia hídrica",
+      "Aprovechamiento del subsidio y bonificación",
+      "Asesoría agroeconómica e ingeniería de riego",
+      "Evaluación integral del proyecto"
+    ]
+  },
+  {
+    id: "financiamiento-habitacional",
+    title: "Financiamiento Habitacional (SERVIU)",
+    price: 11,
+    priceFormatted: "SERVIU & Hipotecario",
+    category: "Especializado",
+    description: "Asesoría en la gestión de subsidios y productos hipotecarios específicos habitacionales y de proyectos.",
+    delivery: "Asesoría Especializada",
+    features: [
+      "Gestión de subsidios habitacionales SERVIU",
+      "Estructuración de créditos hipotecarios",
+      "Evaluación para personas y desarrolladores",
+      "Asesoría patrimonial y legal",
+      "Requisito: Renta líquida mín. $900.000"
     ]
   }
 ];
 ---
 
-<Layout title="Catálogo de Servicios — Vision Code" description="Explora nuestros planes de desarrollo web, e-commerce y agentes IA. Desde $63 USD. Soluciones digitales para impulsar tu negocio.">
+<Layout title="Catálogo de Servicios — CONFIN CAPITAL" description="Explora nuestras soluciones en finanzas corporativas, estructuración y gestión de inversiones. CONFIN CAPITAL.">
   <Navbar />
   
   <!-- AI Background Image -->
@@ -176,27 +222,59 @@ const storeItems = [
         
         <!-- Category Pills -->
         <div class="flex flex-wrap items-center gap-2">
-          <button class="filter-btn active px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-[#E8001C] text-white border border-[#E8001C] shadow-sm" data-filter="all">Todas</button>
-          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Web">Web Corporativa</button>
-          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="E-Commerce">E-Commerce</button>
-          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Sistemas">Sistemas & ERP</button>
-          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="IA">Inteligencia Artificial</button>
+          <button class="filter-btn active px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-[#1B3C9C] text-white border border-[#1B3C9C] shadow-sm" data-filter="all">Todas</button>
+          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Liquidez">Liquidez & Capital</button>
+          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Activos">Activos e Inversión</button>
+          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Garantias">Garantías & FOGAIN</button>
+          <button class="filter-btn px-5 py-2.5 rounded-none text-xs font-bold uppercase tracking-[0.15em] transition-all bg-black/5 text-black/60 border border-black/10 hover:border-black/30 hover:text-black backdrop-blur-md" data-filter="Especializado">Especializado & Agrícola</button>
         </div>
         
         <!-- Sorting Segmented Control -->
         <div class="flex items-center p-1 bg-black/5 border border-black/10 rounded-none backdrop-blur-md">
           <button class="sort-btn active px-4 py-2 rounded-none text-[0.65rem] font-bold uppercase tracking-widest transition-all bg-black/10 text-black" data-sort="default">Recomendado</button>
-          <button class="sort-btn px-4 py-2 rounded-none text-[0.65rem] font-bold uppercase tracking-widest transition-all text-black/50 hover:text-black" data-sort="asc">Menor Precio</button>
-          <button class="sort-btn px-4 py-2 rounded-none text-[0.65rem] font-bold uppercase tracking-widest transition-all text-black/50 hover:text-black" data-sort="desc">Mayor Precio</button>
+          <button class="sort-btn px-4 py-2 rounded-none text-[0.65rem] font-bold uppercase tracking-widest transition-all text-black/50 hover:text-black" data-sort="asc">Portafolios A-D</button>
         </div>
 
+      </div>
+
+      <!-- Política de Admisión Banner -->
+      <div class="mb-12 p-8 bg-[#0a0a0a] border border-[#1B3C9C]/40 text-white fade-up shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <span class="text-xs font-black tracking-widest uppercase text-[#1B3C9C]">POLÍTICA DE ADMISIÓN & CRITERIOS DE EVALUACIÓN</span>
+            <h3 class="text-2xl font-bold">Estándar Institucional de ConFin Capital</h3>
+            <p class="text-xs text-white/70 max-w-3xl leading-relaxed">
+              Para garantizar condiciones de alta rentabilidad y eficiencia de capital en la negociación de estructuras de financiamiento, aplicamos criterios estrictos de evaluación de solvencia y comportamiento comercial:
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 pt-6 border-t border-white/10 text-xs">
+          <div>
+            <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-[#1B3C9C]">Perfil A: Clientes Corporativos (Empresas)</h4>
+            <ul class="space-y-1 text-white/75 font-light">
+              <li>• <strong class="text-white">Antigüedad Operativa:</strong> Mínimo 2 años ante el SII.</li>
+              <li>• <strong class="text-white">Facturación Anual:</strong> Superior a $98.000.000.</li>
+              <li>• <strong class="text-white">Situación Fiscal:</strong> Carpeta Tributaria actualizada y certificado TGR sin deudas.</li>
+              <li>• <strong class="text-white">Estados Financieros:</strong> 2 últimos Balances Generales y Formulario 22.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-[#1B3C9C]">Perfil B: Personas Naturales (Bancarizados & Solventes)</h4>
+            <ul class="space-y-1 text-white/75 font-light">
+              <li>• <strong class="text-white">Continuidad Laboral:</strong> Mínimo 1 año de antigüedad.</li>
+              <li>• <strong class="text-white">Ingresos y Bancarización:</strong> Renta líquida mínima desde $900.000 con cuenta corriente.</li>
+              <li>• <strong class="text-white">Comportamiento Comercial:</strong> Historial intachable (Sin Dicom ni morosidades CMF).</li>
+              <li>• <strong class="text-white">Patrimonio:</strong> Bienes raíces o vehículos inscritos (Plus).</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <!-- Store Grid -->
       <div id="storeGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {storeItems.map((item, i) => (
           <div 
-            class={`store-item group relative flex flex-col justify-between transition-all duration-300 p-8 min-h-[580px] bg-[#0a0a0a] text-white border ${item.isRecommended ? 'border-[#E8001C] shadow-[0_0_25px_rgba(232,0,28,0.15)] scale-[1.02] md:scale-[1.03] z-10' : 'border-white/10'} hover:border-[#E8001C]/50 hover:shadow-[0_0_25px_rgba(232,0,28,0.08)]`}
+            class={`store-item group relative flex flex-col justify-between transition-all duration-300 p-8 min-h-[580px] bg-[#0a0a0a] text-white border ${item.isRecommended ? 'border-[#1B3C9C] shadow-[0_0_25px_rgba(232,0,28,0.15)] scale-[1.02] md:scale-[1.03] z-10' : 'border-white/10'} hover:border-[#1B3C9C]/50 hover:shadow-[0_0_25px_rgba(232,0,28,0.08)]`}
             data-price={item.price} 
             data-category={item.category} 
             data-original-index={i} 
@@ -207,7 +285,7 @@ const storeItems = [
               {/* Badge/Tag */}
               <div class="min-h-[28px] mb-4">
                 {item.badge && (
-                  <span class={`inline-block text-[0.62rem] font-black tracking-widest uppercase px-3 py-1 ${item.isRecommended ? 'bg-[#E8001C] text-white font-bold' : 'bg-white/10 text-white/80'}`}>
+                  <span class={`inline-block text-[0.62rem] font-black tracking-widest uppercase px-3 py-1 ${item.isRecommended ? 'bg-[#1B3C9C] text-white font-bold' : 'bg-white/10 text-white/80'}`}>
                     {item.badge}
                   </span>
                 )}
@@ -223,7 +301,7 @@ const storeItems = [
                   <span class="text-4xl font-extrabold tracking-tight text-white">{item.priceFormatted}</span>
                   {item.monthly && <span class="text-xs font-bold text-white/40 uppercase tracking-wider">{item.monthly}</span>}
                 </div>
-                <div class="text-[0.65rem] text-[#E8001C] font-semibold tracking-wider uppercase mt-2">
+                <div class="text-[0.65rem] text-[#1B3C9C] font-semibold tracking-wider uppercase mt-2">
                   {item.delivery}
                 </div>
               </div>
@@ -232,7 +310,7 @@ const storeItems = [
               <ul class="space-y-3 mb-8">
                 {item.features.map((feature) => (
                   <li class="flex items-start gap-2.5 text-xs text-white/70 font-light">
-                    <svg class="shrink-0 w-3.5 h-3.5 mt-0.5 text-[#E8001C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <svg class="shrink-0 w-3.5 h-3.5 mt-0.5 text-[#1B3C9C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>{feature}</span>
@@ -244,10 +322,10 @@ const storeItems = [
             {/* CTA Buttons */}
             <div class="space-y-2 mt-auto">
               <a 
-                href={`https://api.whatsapp.com/send?phone=56929645522&text=Hola,%20me%20gustaría%20cotizar%20el%20servicio:%20${encodeURIComponent(item.title)}`} 
+                href={`https://api.whatsapp.com/send?phone=56920836337&text=Hola,%20me%20gustaría%20cotizar%20el%20servicio:%20${encodeURIComponent(item.title)}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                class={`w-full py-3.5 text-center text-xs font-bold uppercase tracking-wider block transition-all ${item.isRecommended ? 'bg-[#E8001C] text-white hover:bg-[#b8000e] shadow-[0_0_15px_rgba(232,0,28,0.4)]' : 'bg-transparent text-white border border-white/20 hover:border-[#E8001C] hover:bg-[#E8001C]/10'}`}
+                class={`w-full py-3.5 text-center text-xs font-bold uppercase tracking-wider block transition-all ${item.isRecommended ? 'bg-[#1B3C9C] text-white hover:bg-[#122878] shadow-[0_0_15px_rgba(232,0,28,0.4)]' : 'bg-transparent text-white border border-white/20 hover:border-[#1B3C9C] hover:bg-[#1B3C9C]/10'}`}
               >
                 Cotizar Ahora ↗
               </a>
@@ -323,12 +401,12 @@ const storeItems = [
       btn.addEventListener('click', (e) => {
         // Update UI
         filterBtns.forEach(b => {
-          b.classList.remove('bg-[#E8001C]', 'text-white', 'border-[#E8001C]', 'shadow-[0_0_15px_rgba(232,0,28,0.4)]');
+          b.classList.remove('bg-[#1B3C9C]', 'text-white', 'border-[#1B3C9C]', 'shadow-[0_0_15px_rgba(232,0,28,0.4)]');
           b.classList.add('bg-black/5', 'text-black/60', 'border-black/10');
         });
         const target = e.currentTarget as HTMLButtonElement;
         target.classList.remove('bg-black/5', 'text-black/60', 'border-black/10');
-        target.classList.add('bg-[#E8001C]', 'text-white', 'border-[#E8001C]', 'shadow-[0_0_15px_rgba(232,0,28,0.4)]');
+        target.classList.add('bg-[#1B3C9C]', 'text-white', 'border-[#1B3C9C]', 'shadow-[0_0_15px_rgba(232,0,28,0.4)]');
         
         currentCategory = target.getAttribute('data-filter');
         applyFilters();

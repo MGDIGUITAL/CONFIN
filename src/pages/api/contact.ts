@@ -76,20 +76,20 @@ export const POST: APIRoute = async ({ request }) => {
 
     // ── Send email ──
     const { data, error } = await resend.emails.send({
-      from: 'VisionCode <onboarding@resend.dev>',
-      to: 'vision.code.vs@gmail.com',
+      from: 'CONFIN CAPITAL <onboarding@resend.dev>',
+      to: 'confincapital@gmail.com',
       subject: `Nueva solicitud — ${cleanServicio}`,
       html: `
-        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;background:#0a0a0a;color:#ffffff;border:1px solid #8B1A2B;border-radius:8px;">
-          <h2 style="color:#8B1A2B;">Nueva solicitud de servicio 🚀</h2>
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;background:#0a0a0a;color:#ffffff;border:1px solid #1B3C9C;border-radius:8px;">
+          <h2 style="color:#1B3C9C;">Nueva solicitud de servicio 🚀</h2>
           <p><strong>🏢 Empresa/Negocio:</strong> ${cleanEmpresa}</p>
           <p><strong>☎️ Teléfono Empresa:</strong> ${cleanTelefonoEmpresa}</p>
           <p><strong>👤 Solicitante:</strong> ${cleanSolicitante}</p>
           <p><strong>📱 Teléfono Solicitante:</strong> ${cleanTelefonoSolicitante}</p>
           <p><strong>📧 Correo:</strong> ${cleanCorreo}</p>
           <p><strong>💼 Servicio:</strong> ${cleanServicio}</p>
-          <hr style="border-color:#8B1A2B;margin:24px 0;"/>
-          <p style="color:#666;font-size:12px;">Lead generado desde vision-code.cl</p>
+          <hr style="border-color:#1B3C9C;margin:24px 0;"/>
+          <p style="color:#666;font-size:12px;">Lead generado desde confincapital.cl</p>
         </div>
       `,
     });

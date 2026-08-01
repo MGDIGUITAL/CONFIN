@@ -2,45 +2,45 @@
 const links = [
   { text: "Inicio", href: "/#inicio" },
   { text: "Soluciones", href: "/#servicios" },
-  { text: "Impacto Digital", href: "/#impacto" },
-  { text: "Clientes", href: "/#marcas" },
-  { text: "Servicios", href: "/tienda" },
+  { text: "Ventajas", href: "/#ventajas" },
+  { text: "Proceso", href: "/#proceso" },
+  { text: "Portafolio", href: "/tienda" },
 ];
 ---
 
 <header class="fixed w-full top-0 z-50 flex flex-col" id="navbar">
-  <!-- Línea roja superior -->
-  <div class="h-[3px] w-full bg-[#E8001C]"></div>
+  <!-- Línea celeste de acento -->
+  <div class="h-[3px] w-full bg-[#5B9BE6]"></div>
 
-  <!-- TOP BAR (White background, desktop only, grid redistribution) -->
-  <div id="top-bar" class="hidden md:grid grid-cols-3 bg-white text-black border-b border-black/5 py-4 px-12 items-center w-full min-h-[75px] transition-all duration-300 ease-in-out overflow-hidden">
+  <!-- TOP BAR (Navy blue background, desktop only) -->
+  <div id="top-bar" class="hidden md:grid grid-cols-3 bg-[#122878] text-white border-b border-white/10 py-4 px-12 items-center w-full min-h-[75px] transition-all duration-300 ease-in-out overflow-hidden">
     <!-- Left: Contact Details -->
-    <div class="flex items-center gap-6 text-[0.68rem] font-bold uppercase tracking-widest text-black/70 justify-start">
-      <a href="https://api.whatsapp.com/send?phone=56929645522" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#E8001C] transition-colors">
-        <svg aria-hidden="true" class="w-3.5 h-3.5 text-[#E8001C]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+    <div class="flex items-center gap-6 text-[0.68rem] font-bold uppercase tracking-widest text-white/90 justify-start">
+      <a href="https://api.whatsapp.com/send?phone=56920836337" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#5B9BE6] transition-colors">
+        <svg aria-hidden="true" class="w-3.5 h-3.5 text-[#5B9BE6]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.14-4.117-6.94-6.94l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
         </svg>
-        +56 9 2964 5522
+        +56 9 2083 6337
       </a>
-      <a href="mailto:Vision.code.vs@gmail.com" class="flex items-center gap-2 hover:text-[#E8001C] transition-colors">
-        <svg aria-hidden="true" class="w-3.5 h-3.5 text-[#E8001C]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <a href="mailto:confincapital@gmail.com" class="flex items-center gap-2 hover:text-[#5B9BE6] transition-colors">
+        <svg aria-hidden="true" class="w-3.5 h-3.5 text-[#5B9BE6]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
         </svg>
-        Vision.code.vs@gmail.com
+        confincapital@gmail.com
       </a>
     </div>
 
     <!-- Center: Brand Logo (Moved to right absolute block, keep grid cell empty) -->
     <div class="flex items-center justify-center"></div>
 
-    <!-- Right: Social Links (Shifted left to clear the logo badge overlap) -->
+    <!-- Right: Social Links -->
     <div class="flex items-center gap-4 justify-end" style="padding-right: 160px;">
-      <a href="https://www.instagram.com/vision_code_vc/?hl=es" target="_blank" rel="noopener noreferrer" class="text-black/70 hover:text-[#E8001C] transition-colors" aria-label="Instagram">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-[#5B9BE6] transition-colors" aria-label="Instagram">
         <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
         </svg>
       </a>
-      <a href="https://web.facebook.com/profile.php?id=61591906443953&locale=es_LA" target="_blank" rel="noopener noreferrer" class="text-black/70 hover:text-[#E8001C] transition-colors" aria-label="Facebook">
+      <a href="https://web.facebook.com/profile.php?id=61591906443953&locale=es_LA" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-[#5B9BE6] transition-colors" aria-label="Facebook">
         <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
           <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
         </svg>
@@ -48,45 +48,45 @@ const links = [
     </div>
   </div>
 
-  <!-- MAIN NAVIGATION BAR (Black background) -->
-  <div class="bg-[#0a0a0a] w-full" id="main-nav">
+  <!-- MAIN NAVIGATION BAR (Navy blue background, white text) -->
+  <div class="bg-[#1B3C9C] w-full shadow-md" id="main-nav">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center md:justify-center relative">
       
-      <!-- Mobile/Tablet Brand Logo (Visible on mobile instead of top bar) -->
+      <!-- Mobile/Tablet Brand Logo -->
       <a href="/#inicio" class="flex items-center md:hidden group">
         <img 
-          src="/images/logo-blanco.png" 
-          alt="VisionCode Logo" 
+          src="/images/confin-logo.png" 
+          alt="CONFIN CAPITAL Logo" 
           class="h-8 w-auto object-contain"
         />
       </a>
 
-      <!-- Desktop Links (Centered on desktop) -->
+      <!-- Desktop Links -->
       <nav class="hidden md:flex items-center gap-10">
         {links.map(link => (
           <a 
             href={link.href} 
-            class="text-[0.68rem] font-bold uppercase tracking-widest text-white/70 hover:text-[#E8001C] transition-colors duration-200 relative group"
+            class="text-[0.72rem] font-bold uppercase tracking-widest text-white hover:text-[#5B9BE6] transition-colors duration-200 relative group"
           >
             {link.text}
-            <span class="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-[#E8001C] group-hover:w-full transition-all duration-300"></span>
+            <span class="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-[#5B9BE6] group-hover:w-full transition-all duration-300"></span>
           </a>
         ))}
       </nav>
 
-      <!-- Desktop CTA (Shifted left to leave room for the logo block) -->
+      <!-- Desktop CTA -->
       <div class="hidden md:block absolute" style="right: 220px;">
         <a 
           href="/#contacto" 
-          class="text-[0.62rem] font-black uppercase tracking-widest text-white bg-[#E8001C] hover:bg-[#B8000E] px-4.5 py-2 transition-all duration-200"
+          class="text-[0.65rem] font-black uppercase tracking-widest text-[#1B3C9C] bg-white hover:bg-[#5B9BE6] hover:text-white px-5 py-2.5 shadow-sm transition-all duration-200"
         >
           Cotizar
         </a>
       </div>
 
-      <!-- Mobile Menu Button (Right aligned) -->
+      <!-- Mobile Menu Button -->
       <button 
-        class="md:hidden text-white/75 hover:text-[#E8001C] transition-colors" 
+        class="md:hidden text-white hover:text-[#5B9BE6] transition-colors" 
         id="mobile-btn" 
         aria-label="Abrir menú"
       >
@@ -97,41 +97,41 @@ const links = [
     </div>
   </div>
 
-  <!-- Mobile Menu Drawer (Smooth slide-down transition) -->
-  <div class="md:hidden bg-[#0a0a0a] border-t border-[#E8001C]/20 max-h-0 overflow-hidden transition-all duration-500 ease-in-out" id="mobile-menu">
+  <!-- Mobile Menu Drawer -->
+  <div class="md:hidden bg-[#1B3C9C] border-t border-white/10 max-h-0 overflow-hidden transition-all duration-500 ease-in-out" id="mobile-menu">
     <div class="flex flex-col px-6 py-6 gap-5">
       {links.map(link => (
         <a 
           href={link.href} 
-          class="text-xs font-bold uppercase tracking-widest text-white/70 hover:text-[#E8001C] transition-colors"
+          class="text-xs font-bold uppercase tracking-widest text-white hover:text-[#5B9BE6] transition-colors"
         >
           {link.text}
         </a>
       ))}
-      <div class="h-px bg-white/5 my-2"></div>
+      <div class="h-px bg-white/10 my-2"></div>
       <!-- Contact inside mobile drawer -->
-      <div class="flex flex-col gap-3 text-[0.7rem] text-white/50">
-        <a href="https://api.whatsapp.com/send?phone=56929645522" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8001C] transition-colors flex items-center gap-2">
-          +56 9 2964 5522
+      <div class="flex flex-col gap-3 text-[0.75rem] text-white/80">
+        <a href="https://api.whatsapp.com/send?phone=56920836337" target="_blank" rel="noopener noreferrer" class="hover:text-[#5B9BE6] transition-colors flex items-center gap-2">
+          +56 9 2083 6337
         </a>
-        <a href="mailto:Vision.code.vs@gmail.com" class="hover:text-[#E8001C] transition-colors flex items-center gap-2">
-          Vision.code.vs@gmail.com
+        <a href="mailto:confincapital@gmail.com" class="hover:text-[#5B9BE6] transition-colors flex items-center gap-2">
+          confincapital@gmail.com
         </a>
       </div>
-      <a href="/#contacto" class="text-center text-[0.68rem] font-black uppercase tracking-widest text-white bg-[#E8001C] hover:bg-[#B8000E] px-5 py-3 transition-all duration-200 mt-2">
+      <a href="/#contacto" class="text-center text-[0.7rem] font-black uppercase tracking-widest text-[#1B3C9C] bg-white hover:bg-[#5B9BE6] hover:text-white px-5 py-3 transition-all duration-200 mt-2">
         Contactar
       </a>
     </div>
   </div>
 
-  <!-- Logo overlapping container (Desktop only, positioned absolute relative to header) -->
+  <!-- Logo overlapping container (Desktop only) -->
   <div class="hidden md:block absolute inset-x-0 bottom-0 top-[3px] max-w-7xl mx-auto px-6 pointer-events-none z-50">
     <div class="relative w-full h-full">
-      <div id="logo-overlap" class="absolute right-6 top-0 h-full w-[130px] bg-[#0a0a0a] shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center justify-center pointer-events-auto transition-all duration-300">
+      <div id="logo-overlap" class="absolute right-6 top-0 h-full w-[130px] bg-[#122878] border-l border-r border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.25)] flex items-center justify-center pointer-events-auto transition-all duration-300">
         <a href="/#inicio" class="block w-full h-full flex items-center justify-center p-3">
           <img 
-            src="/images/logo-blanco.png?v=1.1" 
-            alt="VisionCode Logo" 
+            src="/images/confin-logo.png" 
+            alt="CONFIN CAPITAL Logo" 
             class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105"
           />
         </a>

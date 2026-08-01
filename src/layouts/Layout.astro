@@ -8,10 +8,10 @@ export interface Props {
 }
 
 const { 
-  title = "Vision Code — Agencia de Marketing Digital",
-  description = "Soluciones tecnológicas corporativas, sistemas de gestión y plataformas e-commerce de alto rendimiento.",
+  title = "CONFIN CAPITAL — Soluciones y Gestión de Capital",
+  description = "Empresa líder en soluciones financieras, estructuración y gestión de capital de alto rendimiento.",
   preloadHero = false,
-  url = "https://vision-code.cl"
+  url = "https://confin.cl"
 } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, url).href;
 ---
@@ -22,7 +22,7 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="author" content="Vision Code" />
+    <meta name="author" content="CONFIN CAPITAL" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalUrl} />
     <!-- Open Graph -->
@@ -30,24 +30,23 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${url}/images/logo-negro.png`} />
+    <meta property="og:image" content={`${url}/images/confin-logo.png`} />
     <meta property="og:locale" content="es_CL" />
-    <meta property="og:site_name" content="Vision Code" />
+    <meta property="og:site_name" content="CONFIN CAPITAL" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${url}/images/logo-negro.png`} />
-    <meta name="theme-color" content="#E8001C" />
-    <link rel="icon" type="image/png" href="/images/logo-negro.png" />
+    <meta name="twitter:image" content={`${url}/images/confin-logo.png`} />
+    <meta name="theme-color" content="#1B3C9C" />
+    <link rel="icon" type="image/png" href="/images/confin-logo.png" />
     {preloadHero && (
       <>
         <!-- Preload Hero Background Carousel Images to prevent black/blank flash on transition -->
-        <link rel="preload" href="/images/hero-bg-1.jpeg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/images/hero-bg-2.jpeg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/images/hero-bg-3.jpeg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/images/hero-bg-4.jpeg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/images/hero-bg-5.jpeg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/hero-factoring-comex.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/hero-leasing-activos.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/hero-agricola-riego.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/hero-fogain-fianzas.png" as="image" type="image/png" />
       </>
     )}
     <title>{title}</title>
@@ -58,17 +57,17 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
     <!-- Global Styles -->
     <style is:global>
       :root {
-        /* ─── Paleta Vision Code: Blanco + Rojo + Negro ─── */
+        /* ─── Paleta CONFIN CAPITAL: Blanco + Rojo + Negro ─── */
         --saas-bg:            #ffffff;
         --saas-bg-alt:        #F6F6F6;
         --saas-bg-dark:       #0a0a0a;
         --saas-surface:       #ffffff;
-        --saas-surface-hover: rgba(232, 0, 28, 0.04);
+        --saas-surface-hover: rgba(27, 60, 156, 0.04);
         --saas-border:        rgba(0, 0, 0, 0.09);
-        --saas-border-hover:  rgba(232, 0, 28, 0.55);
-        --saas-brand:         #E8001C;
+        --saas-border-hover:  rgba(27, 60, 156, 0.55);
+        --saas-brand:         #1B3C9C;
         --saas-brand-light:   #FF1A2E;
-        --saas-brand-dark:    #B8000E;
+        --saas-brand-dark:    #122878;
         --saas-text:          #0a0a0a;
         --saas-text-muted:    rgba(0, 0, 0, 0.50);
         --saas-text-subtle:   rgba(0, 0, 0, 0.28);
@@ -90,8 +89,8 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
       ::selection { background: var(--saas-brand); color: #fff; }
       ::-webkit-scrollbar { width: 4px; }
       ::-webkit-scrollbar-track { background: #f0f0f0; }
-      ::-webkit-scrollbar-thumb { background: rgba(232, 0, 28, 0.4); }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(232, 0, 28, 0.8); }
+      ::-webkit-scrollbar-thumb { background: rgba(27, 60, 156, 0.4); }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(27, 60, 156, 0.8); }
 
       /* ── Cards blancas con hover rojo ── */
       .bento-card {
@@ -105,8 +104,8 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
       }
       .bento-card:hover {
-        border-color: rgba(232, 0, 28, 0.45);
-        box-shadow: 0 8px 32px rgba(232, 0, 28, 0.10);
+        border-color: rgba(27, 60, 156, 0.45);
+        box-shadow: 0 8px 32px rgba(27, 60, 156, 0.10);
         transform: translateY(-3px);
       }
       .bento-card::after {
@@ -114,7 +113,7 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
         position: absolute;
         top: 0; left: 0; right: 0;
         height: 3px;
-        background: #E8001C;
+        background: #1B3C9C;
         opacity: 0;
         transition: opacity 0.3s ease;
       }
@@ -161,7 +160,7 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
         background: var(--saas-brand-dark);
         border-color: var(--saas-brand-dark);
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(232, 0, 28, 0.35);
+        box-shadow: 0 6px 20px rgba(27, 60, 156, 0.35);
       }
 
       /* ── Botón outline negro (para fondos blancos) ── */
@@ -249,7 +248,7 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
     </style>
   </head>
   <body>
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[99999] focus:bg-[#E8001C] focus:text-white focus:px-4 focus:py-2">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[99999] focus:bg-[#1B3C9C] focus:text-white focus:px-4 focus:py-2">
       Saltar al contenido principal
     </a>
     <slot />
@@ -269,7 +268,7 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
     <div class="fixed bottom-6 left-6 z-[9999] flex flex-col gap-3">
       <!-- WhatsApp -->
       <a 
-        href="https://api.whatsapp.com/send?phone=56929645522" 
+        href="https://api.whatsapp.com/send?phone=56920836337" 
         target="_blank" 
         rel="noopener noreferrer" 
         class="w-12 h-12 bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 group relative"
@@ -285,7 +284,7 @@ const canonicalUrl = new URL(Astro.url.pathname, url).href;
 
       <!-- Instagram -->
       <a 
-        href="https://www.instagram.com/vision_code_vc/?hl=es" 
+        href="https://www.instagram.com/" 
         target="_blank" 
         rel="noopener noreferrer" 
         class="w-12 h-12 bg-[#E1306C] hover:bg-[#C13584] text-white flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 group relative"
